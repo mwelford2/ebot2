@@ -24,20 +24,21 @@ client.on("ready", () => {
 
 //commands to look for
 client.on("message", async message => {
+    var mess = message.content.toLowerCase();
     //taken from stackoverflow, take notes???
-    const args = message.content.trim().split(/ +/g);
+    const args = message.trim().split(/ +/g);
     const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
 
-    if (message.content === "!ping"){
+    if (mess === "!ping"){
         message.channel.send("Hello!");
     }
-    if (message.content.toLowerCase().includes("balls") || message.content.toLowerCase().includes("ball")){
+    if (mess.includes("balls") || message.content.toLowerCase().includes("ball")){
         message.channel.send("https://giphy.com/gifs/shiny-AxpvyWYDHuIH6");
     }
-    if (message.content === "!salad"){
+    if (message === "!salad"){
         message.channel.send("burgers are better");
     }
-    if (cmd === "!e" || message.content.includes("!e") || message.content.includes("!E")){
+    if (cmd === "!e" || message.includes("!e") || message.includes("!E")){
         if (args[1])
             message.channel.send(args[1]);
         if (!args[1] || !Number.isInteger(args[1])){
@@ -79,8 +80,7 @@ client.on("message", async message => {
         return;
     }
 
-    var mess = message.content.toLowerCase();
-    if (message.content.toLowerCase().includes("kevin") && !(message.author.id === client.user.id) && !(message.content.includes("http://"))  && !(message.content.includes("https://"))){
+    if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
         var vc = client.channels.get("903033540747333644");
         vc.join().then(connection => {
@@ -89,12 +89,12 @@ client.on("message", async message => {
         })
         .catch(console.error);
     };
-    if (message.content.includes("http://") || message.content.includes("https://") && !(message.author.id === client.user.id) && !message.content.includes("https://giphy")){
+    if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy")){
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
     }
 
-    if (message.content.toLowerCase().includes("!your mom")){
+    if (mess.includes("!your mom")){
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
