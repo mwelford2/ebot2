@@ -19,7 +19,7 @@ const client = new Discord.Client({
 
 //Display when logged in
 client.on("ready", () => {
-    console.log('Logged in as E!');
+    console.log(`Logged in as ${client.user.tag}`);
 });
 
 //commands to look for
