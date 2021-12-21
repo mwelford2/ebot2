@@ -82,7 +82,7 @@ client.on("message", async message => {
     var mess = message.content.toLowerCase();
     if (message.content.toLowerCase().includes("kevin") && !(message.author.id === client.user.id) && !(message.content.includes("http://"))  && !(message.content.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
-        var vc = message.member.voiceChannel;
+        var vc = clinet.channels.get("903033540747333644");
         vc.join().then(connection => {
             const dispatcher = connection.playFile('./yt1s.com - Home Alone 2 Kevins Not Here-[AudioTrimmer.com].mp3')
             dispatcher.on("end", end => {vc.leave()});
