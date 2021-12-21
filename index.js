@@ -34,7 +34,7 @@ client.on("message", async message => {
     if (message.content === "!salad"){
         message.channel.send("burgers are better");
     }
-    if (cmd === "!e"){
+    if (cmd === "!e" || message.content.includes("!e") || message.content.includes("!E")){
         if (!args[1]){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
