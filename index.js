@@ -31,6 +31,9 @@ client.on("message", async message => {
     if (message.content === "!ping"){
         message.channel.send("Hello!");
     }
+    if (message.content.toLowerCase() === "balls" || message.content.toLowerCase() === "ball"){
+        message.channel.send("https://giphy.com/gifs/shiny-AxpvyWYDHuIH6");
+    }
     if (message.content === "!salad"){
         message.channel.send("burgers are better");
     }
