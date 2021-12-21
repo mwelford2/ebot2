@@ -36,7 +36,6 @@ client.on("message", async message => {
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
     }
     if (message.content.includes("http://") || message.content.includes("https://")){
-        message.channel.send("Ooh, a link!");
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
     }
