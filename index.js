@@ -27,14 +27,14 @@ client.on("message", async message => {
     //taken from stackoverflow, take notes???
     const args = message.content.trim().split(/ +/g);
     const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
-    
+
     if (message.content === "!ping"){
         message.channel.send("Hello!");
     }
     if (message.content === "!salad"){
         message.channel.send("burgers are better");
     }
-    if (message.content === "!E" || message.content === "!e"){
+    if (cmd === "!e"){
         if (!args[1]){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
