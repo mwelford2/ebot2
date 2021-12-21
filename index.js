@@ -2,10 +2,6 @@
 const Discord = require('discord.js');
 const prefix = '!';
 
-//taken from stackoverflow, take notes???
-const args = message.content.trim().split(/ +/g);
-const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
-
 //login to discord
 const client = new Discord.Client({
     allowedMentions: {
@@ -28,6 +24,10 @@ client.on("ready", () => {
 
 //commands to look for
 client.on("message", async message => {
+    //taken from stackoverflow, take notes???
+    const args = message.content.trim().split(/ +/g);
+    const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
+    
     if (message.content === "!ping"){
         message.channel.send("Hello!");
     }
