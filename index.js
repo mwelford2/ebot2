@@ -49,7 +49,8 @@ client.on("message", async message => {
             message.channel.send(str);
         }
     }
-    if (message.content.toLowerCase.includes("kevin")){
+    var mess = message.content.toLowerCase();
+    if (message.content.toLowerCase().includes("kevin")){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
     }
     if (message.content.includes("http://") || message.content.includes("https://")){
