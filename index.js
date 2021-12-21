@@ -50,24 +50,24 @@ client.on("message", async message => {
         }
     }
 
-    function getRandomMessage(m){
-        if (m == 0){
-            getRandomMessage(getRandomIntInclusive(1,4));
-        }
-        if (m == 4){
-            getRandomMessage(getRandomIntInclusive(0,3));
-        }
-        if (m == 1){
-            message.channel.send("Is that a JOJO reference!!!!");
-        }
-        if (m == 2){
-            message.channel.send("I think thats a rick roll, very sus ಠಿ_ಠ");
-        }
-        if (m == 3){
-            message.channel.send("SSSSSSPPPPPPAAAAAAMMMMM");
-        }
-        return;
+function getRandomMessage(m){
+    if (m == 0){
+        getRandomMessage(getRandomIntInclusive(1,4));
     }
+    if (m == 4){
+        getRandomMessage(getRandomIntInclusive(0,3));
+    }
+    if (m == 1){
+        message.channel.send("Is that a JOJO reference!!!!");
+    }
+    if (m == 2){
+        message.channel.send("I think thats a rick roll, very sus ಠಿ_ಠ");
+    }
+    if (m == 3){
+        message.channel.send("SSSSSSPPPPPPAAAAAAMMMMM");
+    }
+    return;
+}
 
     var mess = message.content.toLowerCase();
     if (message.content.toLowerCase().includes("kevin")){
@@ -75,7 +75,7 @@ client.on("message", async message => {
     }
     if (message.content.includes("http://") || message.content.includes("https://")){
         var m = getRandomIntInclusive(0, 4);
-        getRandomMessage(m);
+        //getRandomMessage(m);
     }
 })
 
