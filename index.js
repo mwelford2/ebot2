@@ -35,13 +35,10 @@ client.on("message", async message => {
         message.channel.send("burgers are better");
     }
     if (cmd === "!e" || message.content.includes("!e") || message.content.includes("!E")){
-        if (!args[1]){
+        if (!args[1] || args[1].isNaN()){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
-        else if (args[1].isNaN()){
-            message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEE");
-        }
-        else if (!args[1].isNaN()){
+        else{
             var str = "";
             for (var i = 0; i < args[1]; i++){
                 str += "E";
