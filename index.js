@@ -88,7 +88,7 @@ client.on("message", async message => {
         getRandomMessage(m);
     }
 
-    if (message.content.includes("!your mom")){
+    if (message.content.toLowerCase().includes("!your mom")){
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
