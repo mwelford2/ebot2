@@ -48,25 +48,32 @@ client.on("message", async message => {
             message.channel.send(str);
         }
     }
+    if (command === 'args-info') {
+        if (!args.length) {
+            return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+        }
+    
+        message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+    }
 
-function getRandomMessage(m){
-    if (m == 0){
-        getRandomMessage(getRandomIntInclusive(1,4));
+    function getRandomMessage(m){
+        if (m == 0){
+            getRandomMessage(getRandomIntInclusive(1,4));
+        }
+        if (m == 4){
+            getRandomMessage(getRandomIntInclusive(0,3));
+        }
+        if (m == 1){
+            message.channel.send("Is that a JOJO reference!!!!");
+        }
+        if (m == 2){
+            message.channel.send("I think thats a rick roll, very sus ಠಿ_ಠ");
+        }
+        if (m == 3){
+            message.channel.send("SSSSSSPPPPPPAAAAAAMMMMM");
+        }
+        return;
     }
-    if (m == 4){
-        getRandomMessage(getRandomIntInclusive(0,3));
-    }
-    if (m == 1){
-        message.channel.send("Is that a JOJO reference!!!!");
-    }
-    if (m == 2){
-        message.channel.send("I think thats a rick roll, very sus ಠಿ_ಠ");
-    }
-    if (m == 3){
-        message.channel.send("SSSSSSPPPPPPAAAAAAMMMMM");
-    }
-    return;
-}
 
     var mess = message.content.toLowerCase();
     if (message.content.toLowerCase().includes("kevin") && !(message.author.id === client.user.id) && !(message.content.includes("http://"))  && !(message.content.includes("https://"))){
@@ -76,17 +83,18 @@ function getRandomMessage(m){
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
     }
-})
+
 
 //function to get a random message for links
 
 
 //random number
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-}
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+    }
+})
 
 //login to discord
 client.login(process.env.token);
