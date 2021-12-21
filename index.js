@@ -88,6 +88,10 @@ client.on("message", async message => {
         getRandomMessage(m);
     }
 
+    if (message.content.includes("!your mom")){
+        message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
+    }
+
 
 //function to get a random message for links
 
@@ -101,4 +105,4 @@ client.on("message", async message => {
 })
 
 //login to discord
-client.login(process.env.token);
+client.login(process.env.token); 
