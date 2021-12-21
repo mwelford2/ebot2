@@ -1,6 +1,6 @@
 //import discord.js
 const Discord = require('discord.js');
-const { joinVoicChannel } = require('@discordjs/voice')
+const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
 
 //login to discord
@@ -83,13 +83,13 @@ client.on('messageCreate', async message => {
 
     if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
-        joinVoicChannel({
+        joinVoiceChannel({
             channelId: 903033540747333644,
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
         })
     };
-    if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy")){
+    if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy") && !mess.includes("https://tenor") && !mess.includes(".gif")){
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
     }
