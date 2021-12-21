@@ -84,7 +84,7 @@ client.on('messageCreate', async message => {
     if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
         joinVoiceChannel({
-            channelId: 903033540747333644,
+            channelId: message.member.voiceChannel.id,
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
         })
