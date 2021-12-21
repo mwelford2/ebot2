@@ -48,6 +48,7 @@ client.on("message", async message => {
             message.channel.send(str);
         }
     }
+    var command = message.content;
     if (command === 'args-info') {
         if (!args.length) {
             return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
