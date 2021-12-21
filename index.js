@@ -83,7 +83,7 @@ client.on("message", async message => {
     if (message.content.toLowerCase().includes("kevin") && !(message.author.id === client.user.id) && !(message.content.includes("http://"))  && !(message.content.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
     }
-    if (message.content.includes("http://") || message.content.includes("https://") && !(message.author.id === client.user.id)){
+    if (message.content.includes("http://") || message.content.includes("https://") && !(message.author.id === client.user.id) && !message.content.includes("https://giphy")){
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
     }
