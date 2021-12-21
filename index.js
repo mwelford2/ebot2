@@ -1,5 +1,6 @@
 //import discord.js
 const Discord = require('discord.js');
+const { joinVoicChannel } = require('@discordjs/voice')
 const prefix = '!';
 
 //login to discord
@@ -23,7 +24,7 @@ client.on("ready", () => {
 });
 
 //commands to look for
-client.on("message", async message => {
+client.on('messageCreate', async message => {
     var mess = message.content.toLowerCase();
     //taken from stackoverflow, take notes???
     const args = mess.trim().split(/ +/g);
@@ -82,12 +83,11 @@ client.on("message", async message => {
 
     if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
-        var vc = client.channels.cache.get("903033540747333644");
-        vc.join().then(connection => {
-            const dispatcher = connection.playFile('./yt1s.com - Home Alone 2 Kevins Not Here-[AudioTrimmer.com].mp3')
-            dispatcher.on("end", end => {vc.leave()});
+        joinVoicChannel({
+            channelId: 903033540747333644,
+            guildId: message.guild.id,
+            adapterCreator: message.guild.voiceAdapterCreator
         })
-        .catch(console.error);
     };
     if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy")){
         var m = getRandomIntInclusive(0, 4);
