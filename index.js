@@ -70,12 +70,12 @@ function getRandomMessage(m){
 }
 
     var mess = message.content.toLowerCase();
-    if (message.content.toLowerCase().includes("kevin")){
+    if (message.content.toLowerCase().includes("kevin") && message.author.id !== client.user.id){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
     }
-    if (message.content.includes("http://") || message.content.includes("https://")){
+    if (message.content.includes("http://") || message.content.includes("https://") && message.author.id !== client.user.id){
         var m = getRandomIntInclusive(0, 4);
-        //getRandomMessage(m);
+        getRandomMessage(m);
     }
 })
 
