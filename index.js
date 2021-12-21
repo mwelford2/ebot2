@@ -26,7 +26,7 @@ client.on("ready", () => {
 client.on("message", async message => {
     var mess = message.content.toLowerCase();
     //taken from stackoverflow, take notes???
-    const args = message.trim().split(/ +/g);
+    const args = mess.trim().split(/ +/g);
     const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
 
     if (mess === "!ping"){
