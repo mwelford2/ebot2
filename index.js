@@ -1,5 +1,10 @@
 //import discord.js
 const Discord = require('discord.js');
+const prefix = '!';
+
+//taken from stackoverflow, take notes???
+const args = message.content.trim().split(/ +/g);
+const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
 
 //login to discord
 const client = new Discord.Client({
@@ -30,7 +35,19 @@ client.on("message", async message => {
         message.channel.send("burgers are better");
     }
     if (message.content === "!E" || message.content === "!e"){
-        message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+        if (!args[1]){
+            message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+        }
+        else if (args[1].isNaN()){
+            message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEE");
+        }
+        else if (!args[1].isNaN()){
+            var str = "";
+            for (var i = 0; i < args[1]; i++){
+                str += "E";
+            }
+            message.channel.send(str);
+        }
     }
     if (message.content === "Kevin" || message.content === "kevin"){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
