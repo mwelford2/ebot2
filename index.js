@@ -37,7 +37,7 @@ client.on("message", async message => {
     if (cmd === "!e" || message.content.includes("!e") || message.content.includes("!E")){
         if (args[1])
             message.channel.send(args[1]);
-        if (!args[1] || args[1].isNaN()){
+        if (!args[1] || !Number.isInteger(args[1])){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
         else{
