@@ -37,6 +37,9 @@ client.on("message", async message => {
     }
     if (message.content.includes("http://") || message.content.includes("https://")){
         var m = getRandomIntInclusive(0, 4);
+        if (m = 0 || m = 4){
+            message.channel.send("https://");
+        }
         if (m == 1){
             message.channel.send("Is that a JOJO reference!!!!");
         }
