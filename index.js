@@ -104,7 +104,7 @@ client.on('messageCreate', async message => {
         member.roles.add(role);
         message.channel.send("Role given!");
     }
-    else if (message.content.toLowerCase() === "!give role pastryy" && message.author.id !== client.id && message.author.id !== "504759739289305089"){
+    else if (message.content.toLowerCase() === "!give role pastryy" && message.author.id !== client.id && message.author.id !== 504759739289305089){
         message.channel.send("Sorry, you are not allowed to use this command");
     }
 
