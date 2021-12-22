@@ -108,6 +108,10 @@ client.on('messageCreate', async message => {
         message.channel.send("Sorry, you are not allowed to use this command");
     }
 
+    if (mess === "!story"){
+        message.channel.send("Once opun a tim der was a catus that wamted to go to plaay. De catus was hapy cuz it got to pla witttttttttttth a tele fon. The tele fpon got a cael one day and the catus got scard. The catus ran away cuz he got fritened and he became scard of everything. He transformd into a cat one day, and he got fownd by a person names chiara. Thes person nawamed the cat Loki cux he lookd loco. Loki is scard of everything to this da. Amd he likds pets.");
+    }
+
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
