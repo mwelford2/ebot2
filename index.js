@@ -21,6 +21,7 @@ const client = new Discord.Client({
 //Display when logged in
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
+    client.user.get("504759739289305089").send("E bot updated!");
 });
 
 //commands to look for
