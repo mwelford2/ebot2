@@ -59,7 +59,7 @@ client.on('messageCreate', async message => {
     if(mess === '!membercount'){
         let myGuild = client.guilds.cache.get("902956938000740423");
         let memberCount = myGuild.memberCount;
-        mess.reply(memberCount);
+        message.channel.send(memberCount);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
         var mCount = mess.guild.memberCount;
