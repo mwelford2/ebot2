@@ -57,13 +57,14 @@ client.on('messageCreate', async message => {
         }
     }
     if(mess === '!membercount'){
-        message.channel.send(`There are ${client.guilds.cache.get('902956938000740423').memberCount}`)
+        message.channel.send(`There are ${message.guild.memberCount} members in this server`);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
-        var mCount = client.guilds.cache.get('902956938000740423').memberCount;
-        const Guild = client.guilds.cache.get("902956938000740423");
-        const Members = Guild.members.cache.map(member => member.id);
-        message.channel.reply(Members[getRandomIntInclusive(0,mCount)]);
+        var mCount = message.guild.memberCount; //gets the amount of members in the server
+        const Guild = message.guild; //gets the server the message was sent in 
+        const Members = Guild.members.cache.map(member => member.id); //makes a list of all users in the "guild" or server
+        const rndUser = Members[getRandomIntInclusive(0,mCount)]; //picks a random user from the list
+        message.channel.send(client.users.cache.get(rndUser)); //sends the name of the random user picked
     }
     var command = message.content;
     if (command === 'args-info') {
