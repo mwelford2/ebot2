@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
+const talkedRecently = new Set();
 
 //login to discord
 const client = new Discord.Client({
@@ -109,7 +110,17 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!story"){
-        message.channel.send("Once opun a tim der was a catus that wamted to go to plaay. De catus was hapy cuz it got to pla witttttttttttth a tele fon. The tele fpon got a cael one day and the catus got scard. The catus ran away cuz he got fritened and he became scard of everything. He transformd into a cat one day, and he got fownd by a person names chiara. Thes person nawamed the cat Loki cux he lookd loco. Loki is scard of everything to this da. Amd he likds pets.");
+        if (talkedRecently.has(message.author.id)){
+            message.channel.send("Please wait 1 minute before using this command again");
+        }
+        else{
+            message.channel.send("Once opun a tim der was a catus that wamted to go to plaay. De catus was hapy cuz it got to pla witttttttttttth a tele fon. The tele fpon got a cael one day and the catus got scard. The catus ran away cuz he got fritened and he became scard of everything. He transformd into a cat one day, and he got fownd by a person names chiara. Thes person nawamed the cat Loki cux he lookd loco. Loki is scard of everything to this da. Amd he likds pets.");
+            talkedRecently.add(message.author.id);
+
+            setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+            }, 6000);
+        }
     }
 
 //random number
