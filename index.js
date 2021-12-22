@@ -98,6 +98,11 @@ client.on('messageCreate', async message => {
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
+    if (mess === "!give role pastryy"){
+        var role= member.guild.roles.cache.find(role => role.name === "Pastryy");
+        member.roles.add(role);
+    }
+
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
