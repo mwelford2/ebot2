@@ -98,9 +98,13 @@ client.on('messageCreate', async message => {
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
-    if (mess === "!give role pastryy" && message.member.roles.cache.some(role => role.name === 'MOD') && message.author === "504759739289305089"){
+    if (mess === "!give role pastryy" && message.member.roles.cache.some(role => role.name === 'MOD') && (message.author === "504759739289305089" || message.author.toLowerCase() === "maffeo#5647")){
         var role= member.guild.roles.cache.find(role => role.name === "Pastryy");
         member.roles.add(role);
+        message.channel.send("Role given!");
+    }
+    else if (message.author !== "maffeo#5647" || message.author !== "504759739289305089"){
+        message.channel.send("Sorry, you are not allowed to use this command");
     }
 
 //random number
