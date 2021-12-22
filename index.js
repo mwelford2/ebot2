@@ -100,7 +100,7 @@ client.on('messageCreate', async message => {
 
     if (mess === "!give role pastryy"){
         var role= member.guild.roles.cache.find(role => role.name === "Pastryy");
-        member.roles.add(role);
+        //member.roles.add(role);
     }
 
 //random number
