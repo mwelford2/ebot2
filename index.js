@@ -38,7 +38,7 @@ client.on('messageCreate', async message => {
     if (mess.includes("balls") || message.content.toLowerCase().includes("ball")){
         message.channel.send("https://giphy.com/gifs/shiny-AxpvyWYDHuIH6");
     }
-    if (message === "!salad"){
+    if (mess === "!salad"){
         message.channel.send("burgers are better");
     }
     if (cmd === "!e" || mess.includes("!e") || mess.includes("!E")){
