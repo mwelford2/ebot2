@@ -85,11 +85,13 @@ client.on('messageCreate', async message => {
 
     if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
-        joinVoiceChannel({
+        // this commented code doesn't work, its supposed to join a voice call but I haven't figured out how to do that yet, this was an idea...
+        /*joinVoiceChannel({
             channelId: message.member.voice.channel.id,
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
-        })
+        })*/
+
     };
     if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy") && !mess.includes("https://tenor") && !mess.includes(".gif")){
         var m = getRandomIntInclusive(0, 4);
