@@ -99,7 +99,7 @@ client.on('messageCreate', async message => {
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
-    if (message.content.toLowerCase() === "!give role pastryy" && message.member.roles.cache.some(role => role.name === 'MOD') && (message.author === "504759739289305089" || message.author.toLowerCase() === "maffeo#5647")){
+    if (message.content.toLowerCase() === "!give role pastryy" && message.member.roles.cache.some(role => role.name === 'MOD') && message.author === client.users.cache.get("504759739289305089")){
         var role= member.guild.roles.cache.find(role => role.name === "Pastryy");
         member.roles.add(role);
         message.channel.send("Role given!");
