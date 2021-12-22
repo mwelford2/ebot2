@@ -100,11 +100,11 @@ client.on('messageCreate', async message => {
     }
 
     if (message.content.toLowerCase() === "!give role pastryy" && message.member.roles.cache.some(role => role.name === 'MOD') && message.author === client.users.cache.get("504759739289305089")){
-        var role= member.guild.roles.cache.find(role => role.name === "Pastryy");
+        var role = member.guild.roles.cache.find(role => role.name === "Pastryy");
         member.roles.add(role);
         message.channel.send("Role given!");
     }
-    else if (message.author !== "maffeo#5647" || message.author !== "504759739289305089"){
+    else if (message.author.id !== client.id && message.author !== "maffeo#5647" || message.author !== "504759739289305089"){
         message.channel.send("Sorry, you are not allowed to use this command");
     }
 
