@@ -22,7 +22,7 @@ const client = new Discord.Client({
 //Display when logged in
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
-    //client.users.cache.get("504759739289305089").send("E bot updated!");
+    //client.users.cache.get("process.env.maffeo").send("E bot updated!");
     client.channels.cache.get("922547657816277082").send("E bot updated!");
 });
 
@@ -57,10 +57,10 @@ client.on('messageCreate', async message => {
         }
     }
     if(mess === '!membercount'){
-        message.channel.send(`There are ${message.guild.memberCount} members in this server`);
+        message.channel.send(`There are ${message.guild.memberCount} members in this server, including bots`);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
-        if (talkedRecently.has(message.author.id)){
+        if (talkedRecently.has(message.author.id) && msg.author.id !== '504759739289305089'){ //checks if talkedRecently array has the messanger's id and that its not me. I get excluded for testing purposes. Any other collaborators can add their id's too
             message.reply("Please wait 1 minute before using this command again.");
         }
         else{
@@ -124,12 +124,12 @@ client.on('messageCreate', async message => {
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
-    if (message.content.toLowerCase() === "!give role pastryy" &&  message.author === client.users.cache.get("504759739289305089")){ //only I can use command, really op
+    if (message.content.toLowerCase() === "!give role pastryy" &&  message.author === client.users.cache.get(process.env.maffeo)){ //only I can use command, really op
         var role = message.guild.roles.cache.find(role => role.name === "Pastryy");
         message.author.roles.add(role);
         message.channel.send("Role given!");
     }
-    else if (message.content.toLowerCase() === "!give role pastryy" && message.author.id !== client.id && message.author.id !== 504759739289305089){
+    else if (message.content.toLowerCase() === "!give role pastryy" && message.author.id !== client.id && message.author.id !== process.env.maffeo){
         message.channel.send("Sorry, you are not allowed to use this command");
     }
 
