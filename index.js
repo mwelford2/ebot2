@@ -101,8 +101,8 @@ client.on('messageCreate', async message => {
     }
 
     if (message.content.toLowerCase() === "!give role pastryy" &&  message.author === client.users.cache.get("504759739289305089")){ //only I can use command, really op
-        var role = member.guild.roles.cache.find(role => role.name === "Pastryy");
-        member.roles.add(role);
+        var role = message.guild.roles.cache.find(role => role.name === "Pastryy");
+        message.author.roles.add(role);
         message.channel.send("Role given!");
     }
     else if (message.content.toLowerCase() === "!give role pastryy" && message.author.id !== client.id && message.author.id !== 504759739289305089){
