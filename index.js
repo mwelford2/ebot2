@@ -62,10 +62,10 @@ client.on('messageCreate', async message => {
         message.channel.send(memberCount);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
-        var mCount = mess.guild.memberCount;
+        var mCount = client.guilds.cache.get('902956938000740423').memberCount;
         const Guild = client.guilds.cache.get("902956938000740423");
         const Members = Guild.members.cache.map(member => member.id);
-        mess.reply(Member[getRandomIntInclusive(0,mCount)]);
+        message.channel.reply(Members[getRandomIntInclusive(0,mCount)]);
     }
     var command = message.content;
     if (command === 'args-info') {
