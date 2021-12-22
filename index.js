@@ -64,7 +64,7 @@ client.on('messageCreate', async message => {
         const Guild = message.guild; //gets the server the message was sent in 
         const Members = Guild.members.cache.map(member => member.id); //makes a list of all users in the "guild" or server
         const rndUser = Members[getRandomIntInclusive(0,mCount)]; //picks a random user from the list
-        message.channel.send(client.users.cache.get(rndUser)); //sends the name of the random user picked
+        message.channel.send(`Random user picked: ${client.users.cache.get(rndUser)}`); //sends the name of the random user picked
     }
     var command = message.content;
     if (command === 'args-info') {
