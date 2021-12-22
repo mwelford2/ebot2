@@ -22,7 +22,7 @@ const client = new Discord.Client({
 //Display when logged in
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
-    client.users.cache.get("504759739289305089").send("E bot updated!");
+    //client.users.cache.get("504759739289305089").send("E bot updated!");
     client.channels.cache.get("922547657816277082").send("E bot updated!");
 });
 
