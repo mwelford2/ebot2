@@ -60,11 +60,22 @@ client.on('messageCreate', async message => {
         message.channel.send(`There are ${message.guild.memberCount} members in this server`);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
-        var mCount = message.guild.memberCount; //gets the amount of members in the server
-        const Guild = message.guild; //gets the server the message was sent in 
-        const Members = Guild.members.cache.map(member => member.id); //makes a list of all users in the "guild" or server
-        const rndUser = Members[getRandomIntInclusive(0,mCount)]; //picks a random user from the list
-        message.channel.send(`Random user picked: ${client.users.cache.get(rndUser)}`); //sends the name of the random user picked
+        if (talkedRecently.has(message.author.id)){
+            message.reply("Please wait 1 minute before using this command again.");
+        }
+        else{
+            var mCount = message.guild.memberCount; //gets the amount of members in the server
+            const Guild = message.guild; //gets the server the message was sent in 
+            const Members = Guild.members.cache.map(member => member.id); //makes a list of all users in the "guild" or server
+            const rndUser = Members[getRandomIntInclusive(0,mCount)]; //picks a random user from the list
+            message.channel.send(`Random user picked: ${client.users.cache.get(rndUser)}`); //sends the name of the random user picked
+
+            talkedRecently.add(message.author.id);
+
+            setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+            }, 6000)
+        }
     }
     var command = message.content;
     if (command === 'args-info') {
