@@ -110,7 +110,6 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!story"){
-        message.channel.send("checking usability......");
         if (talkedRecently.has(message.author.id)){
             message.channel.send("Please wait 1 minute before using this command again");
         }
