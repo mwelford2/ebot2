@@ -23,6 +23,7 @@ const client = new Discord.Client({
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
     client.users.cache.get("504759739289305089").send("E bot updated!");
+    client.channels.cache.get("922547657816277082").send("E bot updated!");
 });
 
 //commands to look for
@@ -54,6 +55,15 @@ client.on('messageCreate', async message => {
             }
             message.channel.send(str);
         }
+    }
+    if(mess === '!membercount'){
+        mess.reply(`There are ${mess.guild.memberCount} members`);
+    }
+    if(mess === '!randommember' || mess === '!rndmember'){
+        var mCount = mess.guild.memberCount;
+        const Guild = client.guilds.cache.get("902956938000740423");
+        const Members = Guild.members.cache.map(member => member.id);
+        mess.reply(Member[getRandomIntInclusive(0,mCount)]);
     }
     var command = message.content;
     if (command === 'args-info') {
