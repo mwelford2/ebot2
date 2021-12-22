@@ -57,7 +57,9 @@ client.on('messageCreate', async message => {
         }
     }
     if(mess === '!membercount'){
-        mess.reply(`There are ${mess.guild.memberCount} members`);
+        let myGuild = client.guilds.get("guilds_id_here");
+        let memberCount = myGuild.memberCount;
+        mess.reply(memberCount);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
         var mCount = mess.guild.memberCount;
