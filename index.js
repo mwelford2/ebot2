@@ -60,7 +60,7 @@ client.on('messageCreate', async message => {
         message.channel.send(`There are ${message.guild.memberCount} members in this server, including bots`);
     }
     if(mess === '!randommember' || mess === '!rndmember'){
-        if (talkedRecently.has(message.author.id) && msg.author.id !== '504759739289305089'){ //checks if talkedRecently array has the messanger's id and that its not me. I get excluded for testing purposes. Any other collaborators can add their id's too
+        if (talkedRecently.has(message.author.id) && message.author.id !== process.env.maffeo){ //checks if talkedRecently array has the messanger's id and that its not me. I get excluded for testing purposes. Any other collaborators can add their id's too
             message.reply("Please wait 1 minute before using this command again.");
         }
         else{
