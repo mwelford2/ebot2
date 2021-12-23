@@ -44,13 +44,15 @@ client.on('messageCreate', async message => {
     }
     if (mess.includes("!e")){
         if (args[1])
-            message.channel.send(args[1]);
-        if (!args[1] || typeof args[1] !== "number"){
+            message.channel.send(`arguments: ${args[1]}`);
+        try{
+            var e = "E";
+            message.channel.send(e.repeat(parseInt(args[1])));
+        } catch(e){ 
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+            console.error(e);
         }
-        else{        
-            message.channel.send("E".repeat(args[1]));
-        }
+        
     }
     if(mess === '!membercount'){
         message.channel.send(`There are ${message.guild.memberCount} members in this server, including bots`);
