@@ -43,8 +43,6 @@ client.on('messageCreate', async message => {
         message.channel.send("burgers are better");
     }
     if (mess.includes("!e")){
-        if (args[1])
-            message.channel.send(`arguments: ${args[1]}`);
         try{
             var e = "E";
             message.channel.send(e.repeat(parseInt(args[1])));
