@@ -44,6 +44,8 @@ client.on('messageCreate', async message => {
     }
     if (mess.includes("!e")){
         const arg = message.content.slice(2).trim();
+        if (arg[1])
+            message.channel.send(arg[1]);
         if (arg[1].isNaN()){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
