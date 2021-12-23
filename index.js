@@ -44,9 +44,9 @@ client.on('messageCreate', async message => {
     }
     if (mess.includes("!e")){
         const arg = message.content.slice(2).trim();
-        if (arg[1])
+        if (arg[0])
             message.channel.send(arg[1]);
-        if (arg[1].isNaN()){
+        if (typeof arg[0] !== "number"){ //checks if argument given is not a number
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
         else{
