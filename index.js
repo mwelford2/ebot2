@@ -42,8 +42,19 @@ client.on('messageCreate', async message => {
     if (mess === "!salad"){
         message.channel.send("burgers are better");
     }
-    if (cmd === "!e" || mess.includes("!e") || mess.includes("!E")){
-        if (args[1])
+    if (mess.includes("!e")){
+        const arg = message.content.slice(2).trim();
+        if (arg[1].isNaN()){
+            message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+        }
+        else{
+            var send = "";
+            for (var i = 0; i < arg[1]; i++){
+                str += "E";
+            }
+            message.channel.send(send);
+        }
+        /*if (args[1])
             message.channel.send(args[1]);
         if (!args[1] || !Number.isInteger(args[1])){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
@@ -54,7 +65,7 @@ client.on('messageCreate', async message => {
                 str += "E";
             }
             message.channel.send(str);
-        }
+        }*/
     }
     if(mess === '!membercount'){
         message.channel.send(`There are ${message.guild.memberCount} members in this server, including bots`);
@@ -115,7 +126,9 @@ client.on('messageCreate', async message => {
         })*/
 
         //another approach
-        var vc = message.member.voiceChannel;
+        var channel_info = message.member.guild.voiceStates.cache.find(user => user.id == message.author.id);
+
+        var vc = message.guild.channels.cache.find(channel => channel.id == channel_info.channel.ID);
         if (!vc){
         //    vc = guild.channels.cache.get('903033540747333644');
         }
