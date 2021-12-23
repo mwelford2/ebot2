@@ -49,7 +49,7 @@ client.on('messageCreate', async message => {
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
         else{        
-            message.channel.send("E" * (args[1]));
+            message.channel.send("E".repeat(args[1]));
         }
     }
     if(mess === '!membercount'){
