@@ -48,12 +48,8 @@ client.on('messageCreate', async message => {
         if (!args[1] || typeof args[1] !== "number"){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
-        else{
-            var str = "";
-            for (var i = 0; i < args[1]; i++){
-                str += "E";
-            }
-            message.channel.send(str);
+        else{        
+            message.channel.send("E" * (args[1]));
         }
     }
     if(mess === '!membercount'){
