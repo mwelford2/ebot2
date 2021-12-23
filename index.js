@@ -52,7 +52,7 @@ client.on('messageCreate', async message => {
                 message.channel.send(e.repeat(parseInt(args[1])));
             } catch(e){ 
                 message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
-                console.error(e);
+                console.log(e);
             }
 
             talkedRecently.add(message.author.id);
