@@ -43,22 +43,9 @@ client.on('messageCreate', async message => {
         message.channel.send("burgers are better");
     }
     if (mess.includes("!e")){
-        const arg = message.content.slice(2).trim();
-        if (arg[0])
-            message.channel.send(arg[1]);
-        if (typeof arg[0] !== "number"){ //checks if argument given is not a number
-            message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
-        }
-        else{
-            var send = "";
-            for (var i = 0; i < arg[1]; i++){
-                str += "E";
-            }
-            message.channel.send(send);
-        }
-        /*if (args[1])
+        if (args[1])
             message.channel.send(args[1]);
-        if (!args[1] || !Number.isInteger(args[1])){
+        if (!args[1] || typeof args[1] !== "number"){
             message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
         }
         else{
@@ -67,7 +54,7 @@ client.on('messageCreate', async message => {
                 str += "E";
             }
             message.channel.send(str);
-        }*/
+        }
     }
     if(mess === '!membercount'){
         message.channel.send(`There are ${message.guild.memberCount} members in this server, including bots`);
