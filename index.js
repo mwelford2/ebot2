@@ -43,13 +43,23 @@ client.on('messageCreate', async message => {
         message.channel.send("burgers are better");
     }
     if (mess.includes("!e")){
-        try{
-            var e = "E";
-            message.channel.send(e.repeat(parseInt(args[1])));
-        } catch(e){ 
-            message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
-            console.error(e);
+        if (talkedRecently.has(message.author.id)){
+            message.reply("please wait 1 minute before using this command");
         }
+        else{
+            try{
+                var e = "E";
+                message.channel.send(e.repeat(parseInt(args[1])));
+            } catch(e){ 
+                message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+                console.error(e);
+            }
+
+            talkedRecently.add(message.author.id);
+            setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+            }, 6000);
+    }
         
     }
     if(mess === '!membercount'){
