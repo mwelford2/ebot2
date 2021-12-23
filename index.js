@@ -117,7 +117,7 @@ client.on('messageCreate', async message => {
         //another approach
         var vc = message.member.voiceChannel;
         if (!vc){
-            vc = guild.channels.cache.get('903033540747333644');
+        //    vc = guild.channels.cache.get('903033540747333644');
         }
         vc.join()
             .then(connection => {
