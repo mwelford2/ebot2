@@ -149,7 +149,7 @@ client.on('messageCreate', async message => {
     }
 
     if (message.content.toLowerCase() === "!give role pastryy" &&  message.author === client.users.cache.get(process.env.maffeo)){ //only I can use command, really op
-        var role = message.guild.roles.cache.find(role => role.name === "Pastryy");
+        var role = message.guild.roles.cache.find(role => role.id === '785173527036690462');
         message.author.roles.add(role);
         message.channel.send("Role given!");
     }
