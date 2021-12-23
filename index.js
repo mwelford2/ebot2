@@ -49,7 +49,11 @@ client.on('messageCreate', async message => {
         else{
             try{
                 var e = "E";
-                message.channel.send(e.repeat(parseInt(args[1])));
+                var arg = parseInt(args[1]);
+                var send = e.repeat(arg);
+                if (arg > 120) { arg = 120; }
+                if (arg < 0){ arg = 0; }
+                message.channel.send(send);
             } catch(e){ 
                 message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
                 console.log(e);
