@@ -114,6 +114,14 @@ client.on('messageCreate', async message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })*/
 
+        //another approach
+        if (!message.member.voice.channel){
+            guild.channels.cache.get('903033540747333644').join();
+        }
+        else{
+            message.member.voice.channel.join();
+        }
+
     };
     if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy") && !mess.includes("https://tenor") && !mess.includes(".gif")){
         var m = getRandomIntInclusive(0, 4);
@@ -133,6 +141,7 @@ client.on('messageCreate', async message => {
         message.channel.send("Sorry, you are not allowed to use this command");
     }
 
+    //sends the story only if the user id is not logged in talkedRecently: done to make sure that they don't spam this command 
     if (mess === "!story"){
         if (talkedRecently.has(message.author.id)){
             message.channel.send("Please wait 1 minute before using this command again");
