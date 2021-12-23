@@ -115,12 +115,16 @@ client.on('messageCreate', async message => {
         })*/
 
         //another approach
-        if (!message.member.voice.channel){
-            guild.channels.cache.get('903033540747333644').join();
+        var vc = message.member.voiceChannel;
+        if (!vc){
+            vc = guild.channels.cache.get('903033540747333644');
         }
-        else{
-            message.member.voice.channel.join();
-        }
+        vc.join()
+            .then(connection => {
+                const dispatcher = connection.playFile('./yt1s.com - Home Alone 2 Kevins Not Here-[AudioTrimmer.com].mp3');
+                dispatcher.on('end', end => vc.leave());
+            })
+            .catch(console.error);
 
     };
     if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy") && !mess.includes("https://tenor") && !mess.includes(".gif")){
