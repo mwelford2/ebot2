@@ -190,7 +190,7 @@ client.on('messageCreate', async message => {
     }
 
     if(mess === "!comeback"){
-        message.channel.send(getComback);
+        message.channel.send(`comeback: ${getComback}`);
     }
     if (mess === "-roast"){
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
