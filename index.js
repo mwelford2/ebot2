@@ -183,9 +183,7 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!roast"){
-        const roasts = JSON.parse(json2);
-        var randnum = getRandomIntInclusive(1,59);
-        var obj = roasts.randnum;
+        var obj = json2.randnum;
         message.channel.send(obj);
     }
 
