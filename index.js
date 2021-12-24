@@ -179,7 +179,7 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!roast"){
-        const roasts = require('./roast.json');
+        const roasts = JSON.parse(require('./roast.json'));
         var randnum = getRandomIntInclusive(1,59);
         var obj = roasts[randnum.toString()];
         message.channel.send(obj);
