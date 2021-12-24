@@ -206,8 +206,7 @@ client.on('messageCreate', async message => {
         const keys = Object.keys(json2);
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
-        const comeback = json2[randKey];
-        return comeback;
+        return json2[randKey];
     }
 
 
