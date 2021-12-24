@@ -174,7 +174,7 @@ client.on('messageCreate', async message => {
 
     //JOAQUINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (mess === "joaquin" || mess === "joaquin!" || mess === "joaquine" || mess === "joaquine!" || mess === "!joaquin" || mess === "!joaquine"){
-        const joaquin = 'https://media.giphy.com/media/DtwQKwuGvlB1ewIL91/giphy.gif';
+        const joaquin = 'https://media.giphy.com/media/jmaESExpckbokRe3oW/giphy.gif';
         message.channel.send(joaquin);
     }
 
