@@ -187,7 +187,7 @@ client.on('messageCreate', async message => {
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
         var roast = json2[randKey];
-        message.channel.send(`at your request: ${roast}`);
+        message.channel.send(roast);
     }
 
 //random number
