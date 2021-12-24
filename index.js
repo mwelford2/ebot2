@@ -3,7 +3,9 @@ const Discord = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
 const talkedRecently = new Set();
+
 const json = require('./roast.json');
+const json2 = require('./comeback.json');
 
 //login to discord
 const client = new Discord.Client({
@@ -186,6 +188,16 @@ client.on('messageCreate', async message => {
         var roast = json[randKey];
         message.channel.send(roast);
     }
+
+    if(mess === "!comeback"){
+        const keys = Object.keys(json2);
+        const randIndex = Math.floor(Math.random() * keys.length);
+        const randKey = keys[randIndex];
+        const comeback = json2[randKey];
+        message.channel.send(comeback);
+    }
+
+    
 
 //random number
     function getRandomIntInclusive(min, max) {
