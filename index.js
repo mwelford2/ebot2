@@ -200,11 +200,13 @@ client.on('messageCreate', async message => {
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
         collector.on('collect',message => {
             if (message.author.id === '923283150573010964'){
-                const keys = Object.keys(json2);
-                const randIndex = Math.floor(Math.random() * keys.length);
-                const randKey = keys[randIndex];
-                const comeback = json2[randKey];
-                message.reply(comeback);
+                setTimeout(() => {
+                    const keys = Object.keys(json2);
+                    const randIndex = Math.floor(Math.random() * keys.length);
+                    const randKey = keys[randIndex];
+                    const comeback = json2[randKey];
+                    message.reply(comeback);
+                }, 1000);
             }
         });
     }
