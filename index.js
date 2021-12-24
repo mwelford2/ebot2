@@ -184,7 +184,7 @@ client.on('messageCreate', async message => {
 
     if (mess === "!roast"){
         var obj = json2.randnum;
-        message.channel.send(obj);
+        message.channel.send(`at your request: ${obj}`);
     }
 
 //random number
