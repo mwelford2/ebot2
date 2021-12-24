@@ -172,6 +172,12 @@ client.on('messageCreate', async message => {
         }
     }
 
+    //JOAQUINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (mess === "joaquin" || mess === "joaquin!" || mess === "joaquine" || mess === "joaquine!" || mess === "!joaquin" || mess === "!joaquine"){
+        const attachment = new Attachment('https://media.giphy.com/media/DtwQKwuGvlB1ewIL91/giphy.gif'); //joaquin attachment
+        message.channel.send(attachment);
+    }
+
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
