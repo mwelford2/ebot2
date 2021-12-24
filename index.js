@@ -178,6 +178,14 @@ client.on('messageCreate', async message => {
         message.channel.send(joaquin);
     }
 
+    if (mess === "!roast"){
+        var data = './roast.json';
+        var json = JSON.parse(data);
+        var randnum = getRandomIntInclusive(1,59);
+        var obj = json[randnum.toString()];
+        message.channel.send(obj);
+    }
+
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
