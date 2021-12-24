@@ -190,14 +190,26 @@ client.on('messageCreate', async message => {
     }
 
     if(mess === "!comeback"){
+        message.channel.send(getComback);
+    }
+    if (mess === "-roast"){
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
+        collector.on('complete',message => {
+            if (message.author.id === '923283150573010964'){
+                message.channel.send(getComback);
+            }
+        });
+    }
+
+    function getComback(){
         const keys = Object.keys(json2);
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
         const comeback = json2[randKey];
-        message.channel.send(comeback);
+        return comeback;
     }
 
-    
+
 
 //random number
     function getRandomIntInclusive(min, max) {
