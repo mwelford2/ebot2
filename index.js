@@ -190,7 +190,8 @@ client.on('messageCreate', async message => {
     }
 
     if(mess === "!comeback"){
-        message.channel.send(`comeback: ${getComback}`);
+        const comeback = getComeback;
+        message.channel.send(`comeback: ${comeback}`);
     }
     if (mess === "-roast"){
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
@@ -201,7 +202,7 @@ client.on('messageCreate', async message => {
         });
     }
 
-    function getComback(){
+    function getComeback(){
         const keys = Object.keys(json2);
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
