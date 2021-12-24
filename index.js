@@ -204,7 +204,7 @@ client.on('messageCreate', async message => {
                 const randIndex = Math.floor(Math.random() * keys.length);
                 const randKey = keys[randIndex];
                 const comeback = json2[randKey];
-                message.channel.send(comeback);
+                message.reply(comeback);
             }
         });
     }
