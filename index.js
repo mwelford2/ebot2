@@ -179,10 +179,13 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!roast"){
-        var data = './roast.json';
-        var json = JSON.parse(data);
+        var my_url = './roast.json';
+        var roasts;
+        $.getJSON(my_url, function(json){
+            var roasts = JSON.parse(json);
+        });
         var randnum = getRandomIntInclusive(1,59);
-        var obj = json[randnum.toString()];
+        var obj = roasts[randnum.toString()];
         message.channel.send(obj);
     }
 
