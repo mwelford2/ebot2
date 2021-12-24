@@ -190,7 +190,10 @@ client.on('messageCreate', async message => {
     }
 
     if(mess === "!comeback"){
-        const comeback = getComeback();
+        const keys = Object.keys(json2);
+        const randIndex = Math.floor(Math.random() * keys.length);
+        const randKey = keys[randIndex];
+        const comeback = json2[randKey];
         message.channel.send(`comeback: ${comeback}`);
     }
     if (mess === "-roast"){
