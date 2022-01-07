@@ -211,7 +211,7 @@ client.on('messageCreate', async message => {
     if(mess.includes("!comeback")){
         const keys = Object.keys(json2);
         var num = false;
-        const comeback = ""
+        var comeback = ""
         if (args[1]){
             try{
                 num = true;
