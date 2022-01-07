@@ -198,7 +198,7 @@ client.on('messageCreate', async message => {
             console.log(e);
         }
 
-        message.channel.send(roast);
+        message.channel.send("" + roast);
     }
 
     if(mess.includes("!comeback")){
