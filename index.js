@@ -196,12 +196,11 @@ client.on('messageCreate', async message => {
             catch(e){ console.log(e) };
         }
         
-        else{
-            const randIndex = Math.floor(Math.random() * keys.length);
-            const randKey = keys[randIndex];
-            var roast = json[randKey];
-            console.log(e);
-        }
+        const randIndex = Math.floor(Math.random() * keys.length);
+        const randKey = keys[randIndex];
+        var roast = json[randKey];
+        console.log(e);
+        
         
 
         message.channel.send("" + roast);
@@ -222,11 +221,10 @@ client.on('messageCreate', async message => {
             catch(e) { console.log(e) };
         }
         
-        else{
-            const randIndex = Math.floor(Math.random() * keys.length);
-            const randKey = keys[randIndex];
-            const comeback = json2[randKey];
-        }
+        const randIndex = Math.floor(Math.random() * keys.length);
+        const randKey = keys[randIndex];
+        const comeback = json2[randKey];
+        
 
         message.channel.send("" +comeback);
     }
