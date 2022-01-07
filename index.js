@@ -209,7 +209,7 @@ client.on('messageCreate', async message => {
             if (arg > 101){ arg = 101 };
             if (arg < 0){ arg = 0 };
             const Key = keys[arg];
-            var comeback = json2[key]
+            var comeback = json2[Key]
         }
         catch(e){
             const randIndex = Math.floor(Math.random() * keys.length);
@@ -217,7 +217,7 @@ client.on('messageCreate', async message => {
             const comeback = json2[randKey];
         }
 
-        message.channel.send(comeback);
+        message.channel.send("" +comeback);
     }
     if (mess === "-roast"){
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
