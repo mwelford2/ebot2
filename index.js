@@ -196,10 +196,12 @@ client.on('messageCreate', async message => {
             catch(e){ console.log(e) };
         }
         
-        const randIndex = Math.floor(Math.random() * keys.length);
-        const randKey = keys[randIndex];
-        var roast = json[randKey];
-        console.log(e);
+        else{
+            const randIndex = Math.floor(Math.random() * keys.length);
+            const randKey = keys[randIndex];
+            var roast = json[randKey];
+            console.log(e);
+        }
         
 
         message.channel.send("" + roast);
@@ -207,16 +209,20 @@ client.on('messageCreate', async message => {
 
     if(mess.includes("!comeback")){
         const keys = Object.keys(json2);
-        try{
-            var c = "comeback";
-            var arg = parseInt(args[1]);
-            if (arg > 100){ arg = 100 };
-            if (arg < 0){ arg = 0 };
-            if (arg > 0){ arg -= 1 };
-            const Key = keys[arg];
-            var comeback = json2[Key];
+        if (args[1]){
+            try{
+                var c = "comeback";
+                var arg = parseInt(args[1]);
+                if (arg > 100){ arg = 100 };
+                if (arg < 0){ arg = 0 };
+                if (arg > 0){ arg -= 1 };
+                const Key = keys[arg];
+                var comeback = json2[Key];
+            }
+            catch(e) { console.log(e) };
         }
-        catch(e){
+        
+        else{
             const randIndex = Math.floor(Math.random() * keys.length);
             const randKey = keys[randIndex];
             const comeback = json2[randKey];
