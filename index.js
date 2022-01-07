@@ -182,9 +182,11 @@ client.on('messageCreate', async message => {
     }
 
     if (mess.includes("!roast")){
+        var num = false;
         const keys = Object.keys(json);
         if (args[1]){
             try{
+                num = true;
                 var r = "roast";
                 var arg = parseInt(args[1]);
                 if (arg > 59){ arg = 59 }
@@ -198,35 +200,40 @@ client.on('messageCreate', async message => {
         
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
-        var roast = json[randKey];
+        var roast2 = json[randKey];
         console.log(e);
         
-        
-
-        message.channel.send("" + roast);
+        if (num)
+            message.channel.send("" + roast);
+        else
+            message.channel.send("" + roast2)
     }
 
     if(mess.includes("!comeback")){
         const keys = Object.keys(json2);
+        var num = false;
+        const comeback = ""
         if (args[1]){
             try{
-                var c = "comeback";
+                num = true;
                 var arg = parseInt(args[1]);
                 if (arg > 100){ arg = 100 };
                 if (arg < 0){ arg = 0 };
                 if (arg > 0){ arg -= 1 };
                 const Key = keys[arg];
-                var comeback = json2[Key];
+                comeback = json2[Key];
             }
             catch(e) { console.log(e) };
         }
         
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
-        const comeback = json2[randKey];
+        const comeback2 = json2[randKey];
         
-
-        message.channel.send("" +comeback);
+        if (num)
+            message.channel.send("" +comeback);
+        else
+            message.channel.send("" +comeback2);
     }
     if (mess === "-roast"){
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
