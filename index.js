@@ -188,7 +188,8 @@ client.on('messageCreate', async message => {
             var arg = parseInt(args[1]);
             if (arg > 59){ arg = 59 }
             if (arg < 0){ arg = 0 }
-            const Key = keys[arg - 1];
+            if (arg > 0){ arg -= 1 }
+            const Key = keys[arg];
             var roast = json[Key];
         }
         catch(e){
@@ -208,7 +209,8 @@ client.on('messageCreate', async message => {
             var arg = parseInt(args[1]);
             if (arg > 100){ arg = 100 };
             if (arg < 0){ arg = 0 };
-            const Key = keys[arg - 1];
+            if (arg > 0){ arg -= 1 };
+            const Key = keys[arg];
             var comeback = json2[Key];
         }
         catch(e){
