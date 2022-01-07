@@ -183,21 +183,24 @@ client.on('messageCreate', async message => {
 
     if (mess.includes("!roast")){
         const keys = Object.keys(json);
-        try{
-            var r = "roast";
-            var arg = parseInt(args[1]);
-            if (arg > 59){ arg = 59 }
-            if (arg < 0){ arg = 0 }
-            if (arg > 0){ arg -= 1 }
-            const Key = keys[arg];
-            var roast = json[Key];
+        if (args[1]){
+            try{
+                var r = "roast";
+                var arg = parseInt(args[1]);
+                if (arg > 59){ arg = 59 }
+                if (arg < 0){ arg = 0 }
+                if (arg > 0){ arg -= 1 }
+                const Key = keys[arg];
+                var roast = json[Key];
+            }
+            catch(e){ console.log(e) };
         }
-        catch(e){
-            const randIndex = Math.floor(Math.random() * keys.length);
-            const randKey = keys[randIndex];
-            var roast = json[randKey];
-            console.log(e);
-        }
+        
+        const randIndex = Math.floor(Math.random() * keys.length);
+        const randKey = keys[randIndex];
+        var roast = json[randKey];
+        console.log(e);
+        
 
         message.channel.send("" + roast);
     }
