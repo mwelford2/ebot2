@@ -183,17 +183,40 @@ client.on('messageCreate', async message => {
 
     if (mess === "!roast"){
         const keys = Object.keys(json);
-        const randIndex = Math.floor(Math.random() * keys.length);
-        const randKey = keys[randIndex];
-        var roast = json[randKey];
+        try{
+            var r = "roast";
+            var arg = parseInt(args[1]);
+            if (arg > 59){ arg = 59 }
+            if (arg < 0){ arg = 0 }
+            const Key = keys[arg];
+            var roast = json[Key];
+        }
+        catch(e){
+            const randIndex = Math.floor(Math.random() * keys.length);
+            const randKey = keys[randIndex];
+            var roast = json[randKey];
+            console.log(e);
+        }
+
         message.channel.send(roast);
     }
 
     if(mess === "!comeback"){
         const keys = Object.keys(json2);
-        const randIndex = Math.floor(Math.random() * keys.length);
-        const randKey = keys[randIndex];
-        const comeback = json2[randKey];
+        try{
+            var c = "comeback";
+            var arg = parseInt(args[1]);
+            if (arg > 101){ arg = 101 };
+            if (arg < 0){ arg = 0 };
+            const Key = keys[arg];
+            var comeback = json2[key]
+        }
+        catch(e){
+            const randIndex = Math.floor(Math.random() * keys.length);
+            const randKey = keys[randIndex];
+            const comeback = json2[randKey];
+        }
+
         message.channel.send(comeback);
     }
     if (mess === "-roast"){
