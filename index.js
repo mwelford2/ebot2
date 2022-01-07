@@ -181,7 +181,7 @@ client.on('messageCreate', async message => {
         message.channel.send(joaquin);
     }
 
-    if (mess === "!roast"){
+    if (mess.includes("!roast")){
         const keys = Object.keys(json);
         try{
             var r = "roast";
@@ -201,7 +201,7 @@ client.on('messageCreate', async message => {
         message.channel.send(roast);
     }
 
-    if(mess === "!comeback"){
+    if(mess.includes("!comeback")){
         const keys = Object.keys(json2);
         try{
             var c = "comeback";
