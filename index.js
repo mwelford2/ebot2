@@ -189,7 +189,7 @@ client.on('messageCreate', async message => {
             if (arg > 59){ arg = 59 }
             if (arg < 0){ arg = 0 }
             const Key = keys[arg];
-            var roast = json[Key];
+            var roast = json[Key - 1];
         }
         catch(e){
             const randIndex = Math.floor(Math.random() * keys.length);
@@ -206,10 +206,10 @@ client.on('messageCreate', async message => {
         try{
             var c = "comeback";
             var arg = parseInt(args[1]);
-            if (arg > 101){ arg = 101 };
+            if (arg > 100){ arg = 100 };
             if (arg < 0){ arg = 0 };
             const Key = keys[arg];
-            var comeback = json2[Key]
+            var comeback = json2[Key - 1];
         }
         catch(e){
             const randIndex = Math.floor(Math.random() * keys.length);
