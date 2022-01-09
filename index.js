@@ -183,7 +183,7 @@ client.on('messageCreate', async message => {
         message.channel.send(joaquin);
     }
 
-    if (mess.includes("!roast") && !message.includes("!roastnum")){
+    if (mess.includes("!roast") && !mess.includes("!roastnum")){
         var num = false;
         const keys = Object.keys(json);
         if (args[1]){
@@ -212,7 +212,7 @@ client.on('messageCreate', async message => {
 
 
 
-    if(mess.includes("!comeback") && !message.includes("!comebacknum")){
+    if(mess.includes("!comeback") && !mess.includes("!comebacknum")){
         const keys = Object.keys(json2);
         var num = false;
         var comeback = ""
