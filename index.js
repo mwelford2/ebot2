@@ -183,7 +183,7 @@ client.on('messageCreate', async message => {
         message.channel.send(joaquin);
     }
 
-    if (mess.includes("!roast")){
+    if (mess.includes("!roast") && !message.includes("!roastnum")){
         var num = false;
         const keys = Object.keys(json);
         if (args[1]){
@@ -212,7 +212,7 @@ client.on('messageCreate', async message => {
 
 
 
-    if(mess.includes("!comeback")){
+    if(mess.includes("!comeback") && !message.includes("!comebacknum")){
         const keys = Object.keys(json2);
         var num = false;
         var comeback = ""
@@ -241,7 +241,7 @@ client.on('messageCreate', async message => {
     }
     if (mess === "!roastnumber" || mess === "!roastnum" || mess === "!comebacknumber" || mess === "!comebacknum"){ // tells the author of the message what the last roast or comeback number was
         if (roastOrComebackNumber != null && roastOrComebackNumber != undefined){
-            message.reply(`Roast/Comeback number: ${roastOrComebackNumber}`);
+            message.reply(`Roast/Comeback number: ${roastOrComebackNumber - 1}`);
         }
         else{
             message.reply(`I don't know which roast/comeback you're talking about.`);
