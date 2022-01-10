@@ -41,7 +41,7 @@ client.on('messageCreate', async message => {
     if (mess === "!ping"){
         message.channel.send("Hello!");
     }
-    if (mess.includes("balls") || message.content.toLowerCase().includes("ball")){
+    if (mess.includes("ball")){
         message.channel.send("https://giphy.com/gifs/shiny-AxpvyWYDHuIH6");
     }
     if (mess === "!salad"){
@@ -54,7 +54,7 @@ client.on('messageCreate', async message => {
         if (talkedRecently.has(message.author.id)){
             message.reply("please wait 1 minute before using this command");
         }
-        else{
+        else if (args){
             try{
                 var e = "E";
                 var arg = parseInt(args[1]);
@@ -66,11 +66,18 @@ client.on('messageCreate', async message => {
                 message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
                 console.log(e);
             }
-
             talkedRecently.add(message.author.id);
             setTimeout(() => {
                 talkedRecently.delete(message.author.id);
             }, 6000);
+    }
+    else{
+        message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+            talkedRecently.delete(message.author.id);
+        }, 6000);
     }
         
     }
