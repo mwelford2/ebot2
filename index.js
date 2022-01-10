@@ -47,7 +47,10 @@ client.on('messageCreate', async message => {
     if (mess === "!salad"){
         message.channel.send("burgers are better");
     }
-    if (mess.includes("!e")){
+    if (mess === "!ebot"){
+        message.channel.send("What the fuck you calling me for?");
+    }
+    if (mess.includes("!e ")){
         if (talkedRecently.has(message.author.id)){
             message.reply("please wait 1 minute before using this command");
         }
