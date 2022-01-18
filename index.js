@@ -9,6 +9,11 @@ const json2 = require('./comeback.json');
 
 var roastOrComebackNumber;
 
+let today = new Date();
+var update;
+function getUpdateTime() {
+    return today.getHours() + `:` + today.getMinutes() + `:` + today.getSeconds();
+}
 //login to discord
 const client = new Discord.Client({
     allowedMentions: {
@@ -29,6 +34,8 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
     //client.users.cache.get("process.env.maffeo").send("E bot updated!");
     client.channels.cache.get("922547657816277082").send("E bot updated!");
+    update = getUpdateTime();
+    
 });
 
 //commands to look for
@@ -37,6 +44,10 @@ client.on('messageCreate', async message => {
     //taken from stackoverflow, take notes???
     const args = mess.trim().split(/ +/g);
     const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
+
+    if (mess === "!update" && mess === "!lastupdate"){
+        message.channel.send(`Last update: ${update}`);
+    }
 
     //if there are no arguments it will ask for them. If there are it will ping the user a specified number of times. Default ping number is 20
     if (mess.includes("!ping") && !message.author.bot){
