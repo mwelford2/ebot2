@@ -45,7 +45,7 @@ client.on('messageCreate', async message => {
     const args = mess.trim().split(/ +/g);
     const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
 
-    if (mess === "!update" && mess === "!lastupdate"){
+    if (mess === "!update" || mess === "!lastupdate"){
         message.channel.send(`Last update: ${update}`);
     }
 
