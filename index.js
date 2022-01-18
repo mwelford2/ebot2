@@ -56,11 +56,9 @@ client.on('messageCreate', async message => {
         }
         else{
             let ping = args[1];
+            let numPings = 20;
             if (!args[2]){
-                let numPings = 20;
-            }
-            else{
-                let numPings = args[2];
+                numPings = 20;
             }
             for (let i = 0; i < numPings; i++){
                 message.channel.send(ping);
