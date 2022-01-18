@@ -36,8 +36,23 @@ client.on('messageCreate', async message => {
     const args = mess.trim().split(/ +/g);
     const cmd = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
 
-    if (mess === "!ping"){
-        message.channel.send("Hello!");
+    //if there are no arguments it will ask for them. If there are it will ping the user a specified number of times. Default ping number is 20
+    if (mess.includes("!ping") && !message.author.bot){
+        if (!args[1]){
+            message.channel.send("Usage of !ping command: !ping [@persontoping] [number of pings]");
+        }
+        else{
+            let ping = args[1];
+            if (!args[2]){
+                let numPings = 20;
+            }
+            else{
+                let numPings = args[2];
+            }
+            for (let i = 0; i < numPings; i++){
+                message.channel.send(ping);
+            }
+        }
     }
     if (mess.includes("balls") || message.content.toLowerCase().includes("ball")){
         message.channel.send("https://giphy.com/gifs/shiny-AxpvyWYDHuIH6");
@@ -211,7 +226,7 @@ client.on('messageCreate', async message => {
     if(mess.includes("!comeback")){
         const keys = Object.keys(json2);
         var num = false;
-        var comeback = ""
+        var comeback = "";
         if (args[1]){
             try{
                 num = true;
