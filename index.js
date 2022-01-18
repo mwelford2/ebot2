@@ -60,6 +60,11 @@ client.on('messageCreate', async message => {
             if (args[2]){
                 numPings = args[2];
             }
+            
+            //limit ping number to be between 0 and 50 inclusive so people don't spam
+            if (numPings > 50 ) { numPings = 50; }
+            if (numPings < 0) { numPings = 0; }
+
             for (let i = 0; i < numPings; i++){
                 message.channel.send(ping);
             }
