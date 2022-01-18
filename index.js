@@ -12,7 +12,7 @@ var roastOrComebackNumber;
 let today = new Date();
 var update;
 function getUpdateTime() {
-    return today.getMonth() + `/` + today.getDay() + `:` + today.getYear() + ` ` + today.getHours() + `:` + today.getMinutes() + `:` + today.getSeconds();
+    return today.getMonth() + `/` + today.getDay() + `/` + today.getYear() + ` ` + today.getHours() + `:` + today.getMinutes() + `:` + today.getSeconds();
 }
 //login to discord
 const client = new Discord.Client({
