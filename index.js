@@ -7,6 +7,8 @@ const talkedRecently = new Set();
 const json = require('./roast.json');
 const json2 = require('./comeback.json');
 
+var roastOrComebackNumber;
+
 //login to discord
 const client = new Discord.Client({
     allowedMentions: {
@@ -54,17 +56,20 @@ client.on('messageCreate', async message => {
             }
         }
     }
-    if (mess.includes("balls") || message.content.toLowerCase().includes("ball")){
+    if (mess.includes("ball")){
         message.channel.send("https://giphy.com/gifs/shiny-AxpvyWYDHuIH6");
     }
     if (mess === "!salad"){
         message.channel.send("burgers are better");
     }
-    if (mess.includes("!e")){
+    if (mess === "!ebot"){
+        message.channel.send("What the fuck you calling me for?");
+    }
+    if (mess.includes("!e ")){
         if (talkedRecently.has(message.author.id)){
             message.reply("please wait 1 minute before using this command");
         }
-        else{
+        else if (args){
             try{
                 var e = "E";
                 var arg = parseInt(args[1]);
@@ -76,11 +81,18 @@ client.on('messageCreate', async message => {
                 message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
                 console.log(e);
             }
-
             talkedRecently.add(message.author.id);
             setTimeout(() => {
                 talkedRecently.delete(message.author.id);
             }, 6000);
+    }
+    else{
+        message.channel.send("EEEEEEEEEEEEEEEEEEEEEEEEE");
+
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+            talkedRecently.delete(message.author.id);
+        }, 6000);
     }
         
     }
@@ -196,18 +208,18 @@ client.on('messageCreate', async message => {
         message.channel.send(joaquin);
     }
 
-    if (mess.includes("!roast")){
+    if (mess.includes("!roast") && !mess.includes("!roastnum")){
         var num = false;
         const keys = Object.keys(json);
         if (args[1]){
             try{
                 num = true;
-                var r = "roast";
                 var arg = parseInt(args[1]);
-                if (arg > 59){ arg = 59 }
+                if (arg > 58){ arg = 58 }
                 if (arg < 0){ arg = 0 }
                 const Key = keys[arg];
                 var roast = json[Key];
+                roastOrComebackNumber = Key; // stores the roast number in a variable
             }
             catch(e){ console.log(e) };
         }
@@ -215,7 +227,7 @@ client.on('messageCreate', async message => {
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
         var roast2 = json[randKey];
-        console.log(e);
+        roastOrComebackNumber = randKey; // stores the roast number in a variable
         
         if (num)
             message.channel.send("" + roast);
@@ -223,7 +235,9 @@ client.on('messageCreate', async message => {
             message.channel.send("" + roast2)
     }
 
-    if(mess.includes("!comeback")){
+
+
+    if(mess.includes("!comeback") && !mess.includes("!comebacknum")){
         const keys = Object.keys(json2);
         var num = false;
         var comeback = "";
@@ -235,6 +249,7 @@ client.on('messageCreate', async message => {
                 if (arg < 0){ arg = 0 };
                 const Key = keys[arg];
                 comeback = json2[Key];
+                roastOrComebackNumber = Key; // stores the comeback number in a variable
             }
             catch(e) { console.log(e) };
         }
@@ -242,11 +257,20 @@ client.on('messageCreate', async message => {
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
         const comeback2 = json2[randKey];
+        roastOrComebackNumber = randKey; // stores the comeback number in a variable
         
         if (num)
             message.channel.send("" +comeback);
         else
             message.channel.send("" +comeback2);
+    }
+    if (mess === "!roastnumber" || mess === "!roastnum" || mess === "!comebacknumber" || mess === "!comebacknum"){ // tells the author of the message what the last roast or comeback number was
+        if (roastOrComebackNumber != null && roastOrComebackNumber != undefined){
+            message.reply(`Roast/Comeback number: ${roastOrComebackNumber - 1}`);
+        }
+        else{
+            message.reply(`I don't know which roast/comeback you're talking about.`);
+        }
     }
     if (mess === "-roast"){
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === '923283150573010964', {time: 10000});
