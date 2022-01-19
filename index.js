@@ -301,6 +301,20 @@ client.on('messageCreate', async message => {
             }
         });
     }
+    //Basically gives the lyrics to senator armstrong's theme
+      if (mess === "!armstrong"){
+        if (talkedRecently.has(message.author.id)){
+            message.channel.send("Please wait 1 minute before using this command again");
+        }
+        else{
+            message.channel.send("Standing here I realize You are just like me Trying to make history But who’s to judge The right from wrong? When our guard is down I think we’ll both agree That violence breeds violence But in the end it has to be this way I’ve carved my own path You followed your wrath But maybe we’re both the same The world has turned And so many have burned But nobody is to blame Yet staring across this barren wasted land I feel new life will be born Beneath the blood stained sand Beneath the blood stained sand");
+            talkedRecently.add(message.author.id);
+
+            setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+            }, 6000);
+        }
+    }
 
 //random number
     function getRandomIntInclusive(min, max) {
