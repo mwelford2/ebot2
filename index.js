@@ -234,7 +234,7 @@ client.on('messageCreate', async message => {
                 if (arg < 0){ arg = 0 }
                 const Key = keys[arg];
                 var roast = json[Key];
-                roastOrComebackNumber = arg+1; // stores the roast number in a variable
+                roastOrComebackNumber = keys[arg]; // stores the roast number in a variable
             }
             catch(e){ console.log(e) };
         }
@@ -264,7 +264,7 @@ client.on('messageCreate', async message => {
                 if (arg < 0){ arg = 0 };
                 const Key = keys[arg];
                 comeback = json2[Key];
-                roastOrComebackNumber = Key; // stores the comeback number in a variable
+                roastOrComebackNumber = keys[arg]; // stores the comeback number in a variable
             }
             catch(e) { console.log(e) };
         }
