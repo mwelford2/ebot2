@@ -68,6 +68,7 @@ client.on('messageCreate', async message => {
             for (let i = 0; i < numPings; i++){
                 message.channel.send(ping);
             }
+            message.channel.send("Done Pinging!");
         }
     }
     if (mess.includes("ball")){
