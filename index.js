@@ -234,7 +234,7 @@ client.on('messageCreate', async message => {
                 if (arg < 0){ arg = 0 }
                 const Key = keys[arg];
                 var roast = json[Key];
-                roastOrComebackNumber = Key; // stores the roast number in a variable
+                roastOrComebackNumber = arg+1; // stores the roast number in a variable
             }
             catch(e){ console.log(e) };
         }
@@ -242,7 +242,7 @@ client.on('messageCreate', async message => {
         const randIndex = Math.floor(Math.random() * keys.length);
         const randKey = keys[randIndex];
         var roast2 = json[randKey];
-        roastOrComebackNumber = randKey; // stores the roast number in a variable
+        roastOrComebackNumber = randIndex + 1; // stores the roast number in a variable
         
         if (num)
             message.channel.send("" + roast);
