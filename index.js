@@ -230,7 +230,7 @@ client.on('messageCreate', async message => {
             try{
                 num = true;
                 var arg = parseInt(args[1]);
-                if (arg > 58){ arg = 58 }
+                if (arg > 59){ arg = 59 }
                 if (arg < 0){ arg = 0 }
                 const Key = keys[arg];
                 var roast = json[Key];
