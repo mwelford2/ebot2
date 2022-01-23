@@ -318,6 +318,7 @@ client.on('messageCreate', async message => {
     }
 
     //kevin quote
+    //TODO: This does'nt work, make it work
     if (mess === '!kevinquote'){
         const keys = Object.keys(kevinquote);
         var num = false;
@@ -346,7 +347,7 @@ client.on('messageCreate', async message => {
         message.channel.send("" + quote); //the "" are added to ensure that the message is not emtpy
     }
 
-    //empty message
+    //empty message (experiment)
     if (mess === "!empty"){
         message.channel.send("");
     }
