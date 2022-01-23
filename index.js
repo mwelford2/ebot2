@@ -306,7 +306,7 @@ client.on('messageCreate', async message => {
     }
     
     //joe mama
-    if (mess.includes('mama')){
+    if (mess.includes('mama') && !mess.includes("tenor") && !message.bot){
         message.channel.send("https://tenor.com/view/joe-mama-gif-21567953"); //sends gif of joe mama, (ctrl+click ot see, this can be changed at any point, so if you find a better one please put it)
     }
 
