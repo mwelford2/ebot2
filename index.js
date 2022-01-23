@@ -183,9 +183,9 @@ client.on('messageCreate', async message => {
                 const dispatcher = connection.playFile('./yt1s.com - Home Alone 2 Kevins Not Here-[AudioTrimmer.com].mp3');
                 dispatcher.on('end', end => vc.leave());
             })
-            .catch(console.error);
+            .catch(console.error);*/
 
-    };*/
+    };
     if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy") && !mess.includes("https://tenor") && !mess.includes(".gif")){
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
@@ -356,7 +356,7 @@ client.on('messageCreate', async message => {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
     }
-}});
+});
 
 //login to discord
 client.login(process.env.token); 
