@@ -160,7 +160,7 @@ client.on('messageCreate', async message => {
         return;
     }
 
-    if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://"))){
+    if (mess.includes("kevin") && !(message.author.id === client.user.id) && !(mess.includes("http://"))  && !(mess.includes("https://")) && !(mess.includes("!kevinquote"))){
         message.channel.send("https://gfycat.com/coarseneighboringhummingbird-kevin-what");
         // this commented code doesn't work, its supposed to join a voice call but I haven't figured out how to do that yet, this was an idea...
         /*joinVoiceChannel({
