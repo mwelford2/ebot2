@@ -6,7 +6,9 @@ const talkedRecently = new Set();
 
 const json = require('./roast.json');
 const json2 = require('./comeback.json');
+const kevinquotes = require('./kevinquotes.json');
 
+var kevinquote = "";
 var roastOrComebackNumber;
 
 let today = new Date();
@@ -317,7 +319,31 @@ client.on('messageCreate', async message => {
 
     //kevin quote
     if (mess === '!kevinquote'){
-        message.channel.send(`This message will be replaced with a quote once we get them`);
+        const keys = Object.keys(kevinquote);
+        var num = false;
+        var quote = "";
+        if (args[1]){
+            try{
+                num = true;
+                var arg = parseInt(args[1]);
+                if (arg > 120) { arg = 120; }
+                if (arg < 0) { arg = 0; } 
+                const Key = keys[arg];
+                quote = kevinquote[Key]
+                kevinquote = Key;
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
+
+        if (!num){
+            const randIndex = Math.floor(Math.random() * keys.length);
+            const randKey = keys[randIndex];
+            quote = kevinquotes[randKey];
+            kevinquote = randKey;
+        }
+        message.channel.send(quote);
     }
 
 //random number
