@@ -172,7 +172,7 @@ client.on('messageCreate', async message => {
         })*/
 
         //another approach
-        var channel_info = message.member.guild.voiceStates.cache.find(user => user.id == message.author.id);
+        /*var channel_info = message.member.guild.voiceStates.cache.find(user => user.id == message.author.id);
 
         var vc = message.guild.channels.cache.find(channel => channel.id == channel_info.channel.ID);
         if (!vc){
@@ -185,7 +185,7 @@ client.on('messageCreate', async message => {
             })
             .catch(console.error);
 
-    };
+    };*/
     if (mess.includes("http://") || mess.includes("https://") && !(message.author.id === client.user.id) && !mess.includes("https://giphy") && !mess.includes("https://tenor") && !mess.includes(".gif")){
         var m = getRandomIntInclusive(0, 4);
         getRandomMessage(m);
@@ -356,7 +356,7 @@ client.on('messageCreate', async message => {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
     }
-})
+}});
 
 //login to discord
 client.login(process.env.token); 
