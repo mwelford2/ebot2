@@ -223,6 +223,7 @@ client.on('messageCreate', async message => {
         message.channel.send(joaquin);
     }
 
+    //Roasts/Comeback stuff
     if (mess.includes("!roast") && !mess.includes("!roastnum")){
         var num = false;
         const keys = Object.keys(json);
@@ -239,7 +240,7 @@ client.on('messageCreate', async message => {
             catch(e){ console.log(e) };
         }
         
-        const randIndex = Math.floor(Math.random() * keys.length);
+        const randIndex = Math.floor(Math.random() * keys.length); 
         const randKey = keys[randIndex];
         var roast2 = json[randKey];
         if (!args[1]){
@@ -302,6 +303,11 @@ client.on('messageCreate', async message => {
                 }, 1000);
             }
         });
+    }
+    
+    //joe mama
+    if (mess.includes('mama')){
+        message.channel.send("https://tenor.com/view/joe-mama-gif-21567953"); //sends gif of joe mama, (ctrl+click ot see, this can be changed at any point, so if you find a better one please put it)
     }
 
 //random number
