@@ -8,7 +8,7 @@ const json = require('./roast.json');
 const json2 = require('./comeback.json');
 const kevinquotes = require('./kevinquotes.json');
 
-var kevinquote = "";
+var TheQuote = "";
 var roastOrComebackNumber;
 
 let today = new Date();
@@ -320,7 +320,7 @@ client.on('messageCreate', async message => {
     //kevin quote
     //TODO: This does'nt work, make it work
     if (mess === '!kevinquote'){
-        const keys = Object.keys(kevinquote);
+        const keys = Object.keys(kevinquotes);
         var num = false;
         var quote = "";
         if (args[1]){
@@ -330,8 +330,8 @@ client.on('messageCreate', async message => {
                 if (arg > 120) { arg = 120; }
                 if (arg < 0) { arg = 0; } 
                 const Key = keys[arg];
-                quote = kevinquote[Key]
-                kevinquote = Key;
+                quote = kevinquotes[Key]
+                TheQuote = Key;
             }
             catch(e){
                 console.log(e);
@@ -342,13 +342,13 @@ client.on('messageCreate', async message => {
             const randIndex = Math.floor(Math.random() * keys.length);
             const randKey = keys[randIndex];
             quote = kevinquotes[randKey];
-            kevinquote = randKey;
+            TheQuote = randKey;
         }
         message.channel.send("" + quote); //the "" are added to ensure that the message is not emtpy
     }
 
     if (mess === "!quote"){
-        message.channel.send(kevinquote);
+        message.channel.send(TheQuote);
     }
 //random number
     function getRandomIntInclusive(min, max) {
