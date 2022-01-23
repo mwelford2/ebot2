@@ -326,7 +326,7 @@ client.on('messageCreate', async message => {
         if (args[1]){
             try{
                 num = true;
-                var arg = parseInt(args[1]);
+                var arg = parseInt(args[1]) - 1;
                 if (arg > 120) { arg = 120; }
                 if (arg < 0) { arg = 0; } 
                 const Key = keys[arg];
