@@ -310,6 +310,11 @@ client.on('messageCreate', async message => {
         message.channel.send("https://tenor.com/view/joe-mama-gif-21567953"); //sends gif of joe mama, (ctrl+click ot see, this can be changed at any point, so if you find a better one please put it)
     }
 
+    //message: !armstrong
+    if (mess === '!armstrong'){
+        message.channel.send.send(`Standing here I realize You are just like me Trying to make history But who’s to judge The right from wrong? When our guard is down I think we’ll both agree That violence breeds violence But in the end it has to be this way I’ve carved my own path You followed your wrath But maybe we’re both the same The world has turned And so many have burned But nobody is to blame Yet staring across this barren wasted land I feel new life will be born Beneath the blood stained sand Beneath the blood stained sand`);
+    }
+
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
