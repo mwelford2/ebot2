@@ -317,7 +317,7 @@ client.on('messageCreate', async message => {
 
     //kevin quote
     if (mess === '!kevinquote'){
-        message.channel.send(`This message will be replaced with a quote once I get them`);
+        message.channel.send(`This message will be replaced with a quote once we get them`);
     }
 
 //random number
