@@ -348,7 +348,7 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!quote"){
-        message.reply(`Quote Number: ${TheQuote}`);
+        message.reply(`Quote Number: ${TheQuote - 1}`);
     }
 //random number
     function getRandomIntInclusive(min, max) {
