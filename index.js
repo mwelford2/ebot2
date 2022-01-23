@@ -343,9 +343,13 @@ client.on('messageCreate', async message => {
             quote = kevinquotes[randKey];
             kevinquote = randKey;
         }
-        message.channel.send(quote);
+        message.channel.send("" + quote); //the "" are added to ensure that the message is not emtpy
     }
 
+    //empty message
+    if (mess === "!empty"){
+        message.channel.send("");
+    }
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
