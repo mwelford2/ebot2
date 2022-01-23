@@ -347,9 +347,8 @@ client.on('messageCreate', async message => {
         message.channel.send("" + quote); //the "" are added to ensure that the message is not emtpy
     }
 
-    //empty message (experiment)
-    if (mess === "!empty"){
-        message.channel.send("");
+    if (mess === "!quote"){
+        message.channel.send(kevinquote);
     }
 //random number
     function getRandomIntInclusive(min, max) {
