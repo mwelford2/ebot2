@@ -319,7 +319,7 @@ client.on('messageCreate', async message => {
 
     //kevin quote
     //TODO: This does'nt work, make it work
-    if (mess === '!kevinquote'){
+    if (mess.includes("!kevinquote")){
         const keys = Object.keys(kevinquotes);
         var num = false;
         var quote = "";
