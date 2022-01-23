@@ -348,7 +348,7 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!quote"){
-        message.channel.send(TheQuote);
+        message.reply(`Quote Number: ${TheQuote}`);
     }
 //random number
     function getRandomIntInclusive(min, max) {
