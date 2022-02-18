@@ -327,7 +327,7 @@ client.on('messageCreate', async message => {
             try{
                 num = true;
                 var arg = parseInt(args[1]) - 1;
-                if (arg > 120) { arg = 120; }
+                if (arg > 132) { arg = 132; }
                 if (arg < 0) { arg = 0; } 
                 const Key = keys[arg];
                 quote = kevinquotes[Key]
