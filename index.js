@@ -317,6 +317,27 @@ client.on('messageCreate', async message => {
         message.channel.send(`Standing here I realize You are just like me Trying to make history But who’s to judge The right from wrong? When our guard is down I think we’ll both agree That violence breeds violence But in the end it has to be this way I’ve carved my own path You followed your wrath But maybe we’re both the same The world has turned And so many have burned But nobody is to blame Yet staring across this barren wasted land I feel new life will be born Beneath the blood stained sand Beneath the blood stained sand`);
     }
 
+    //message: !spam
+    if (mess.includes("spam")){
+        if (args[1]){
+            var i = 10;
+            var spamMess = args[1];
+            if (args[2]){
+                i = args[2];
+            }
+            if (args[3]){
+                spamMess += " " + args[3];
+            }
+            
+            if (i > 20) { i = 20; }
+            if ( i < 0 ) { i = 0; }
+            for (var j = 0; j < i; j++) {
+                message.channel.send(spamMess);
+            }
+        }
+        else { message.reply("This command was used incorrectly, correct format:\n!spam <@user> <number of times (opt)> <message (opt)>"); }
+    }
+
     //kevin quote
     //TODO: This does'nt work, make it work
     if (mess.includes("!kevinquote")){
