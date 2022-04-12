@@ -373,7 +373,7 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!fault"){
-        message.channel.send(`ITS GRACE MALTEZ\'S FAULT. YOU SHOULD KNOW THAT @${message.author}`);
+        message.channel.send(`ITS GRACE MALTEZ\'S FAULT. YOU SHOULD KNOW THAT ${message.author}`);
     }
 //random number
     function getRandomIntInclusive(min, max) {
