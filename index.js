@@ -372,7 +372,7 @@ client.on('messageCreate', async message => {
         message.reply(`Quote Number: ${TheQuote - 1}`);
     }
 
-    if (mess === "!fault"){
+    if (mess.includes("fault")){
         message.channel.send(`ITS GRACE MALTEZ\'S FAULT. YOU SHOULD KNOW THAT ${message.author}`);
     }
 //random number
