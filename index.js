@@ -375,6 +375,10 @@ client.on('messageCreate', async message => {
     if (mess.includes("fault") && message.author.id != '778274994430017546'){
         message.channel.send(`ITS GRACE MALTEZ\'S FAULT. YOU SHOULD KNOW THAT ${message.author}`);
     }
+
+    if (mess.includes("autism")){
+        message.channel.delete();
+    }
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
