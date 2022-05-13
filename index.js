@@ -1,4 +1,4 @@
-//import discord.js
+//prerequisites
 const Discord = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
@@ -10,6 +10,8 @@ const kevinquotes = require('./kevinquotes.json');
 
 var TheQuote = "";
 var roastOrComebackNumber;
+
+var cron = require('cron');
 
 let today = new Date();
 var update;
@@ -377,8 +379,11 @@ client.on('messageCreate', async message => {
     }
 
     if (mess.includes("autism")){
-        message.channel.delete();
+        message.delete();
     }
+
+    //daily message
+    var job1 = new cron.CronJob('12 00 00', message.channel.chache.get('922547657816277082').send("I have a boner (contributed gratefully by monsier alliamo)"));
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
