@@ -385,6 +385,9 @@ client.on('messageCreate', async message => {
     //daily message
     var job1 = new cron.CronJob('12 00 00', message.channel.chache.get('922547657816277082').send("I have a boner (contributed gratefully by monsier alliamo)"));
     job1.start();
+    //daily message test
+    var job2 = new cron.CronJob('20 51 00', message.channel.cache.get('922547657816277082').send("It works!"));
+    job2.start();
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
