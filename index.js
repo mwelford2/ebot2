@@ -11,7 +11,8 @@ const kevinquotes = require('./kevinquotes.json');
 var TheQuote = "";
 var roastOrComebackNumber;
 
-var cron = require('cron');
+// dont' work
+// var cron = require('cron');
 
 let today = new Date();
 var update;
@@ -383,12 +384,12 @@ client.on('messageCreate', async message => {
         message.delete();
     }
 
-    //daily message
+    /*daily message don't work
     var job1 = new cron.CronJob('12 00 00', message.channel.chache.get('922547657816277082').send("I have a boner (contributed gratefully by monsier alliamo)"));
     job1.start();
     //daily message test
     var job2 = new cron.CronJob('20 51 00', message.channel.cache.get('922547657816277082').send("It works!"));
-    job2.start();
+    job2.start(); */
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
