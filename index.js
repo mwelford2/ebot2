@@ -318,7 +318,6 @@ client.on('messageCreate', async message => {
     //message: !armstrong
     if (mess === '!armstrong'){
         message.channel.send(`Shut the fuck up! Its not funny anymore!`);
-        console.log('yo it works');
     }
 
     //message: !spam
