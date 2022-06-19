@@ -8,6 +8,8 @@ const json = require('./roast.json');
 const json2 = require('./comeback.json');
 const kevinquotes = require('./kevinquotes.json');
 
+var cron = require('cron');
+
 var TheQuote = "";
 var roastOrComebackNumber;
 
@@ -327,7 +329,7 @@ client.on('messageCreate', async message => {
             try{
                 num = true;
                 var arg = parseInt(args[1]) - 1;
-                if (arg > (keys.length - 1)) { arg = kyes.length - 1; }
+                if (arg > (keys.length - 1)) { arg = keys.length - 1; }
                 if (arg < 0) { arg = 0; } 
                 const Key = keys[arg];
                 quote = kevinquotes[Key]
@@ -350,6 +352,14 @@ client.on('messageCreate', async message => {
     if (mess === "!quote"){
         message.reply(`Quote Number: ${TheQuote - 1}`);
     }
+
+    var scheduledMessage = new cron.CronJob('00 30 10 * * *', () => {
+        const guild = client.guild.cache.get('902956938000740423');
+        const channel = client.guild.cache.get('922547657816277082');
+        channel.send("I have a boner");
+    });
+    scheduledMessage.start();
+
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
