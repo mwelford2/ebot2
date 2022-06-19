@@ -382,6 +382,13 @@ client.on('messageCreate', async message => {
     if (mess.includes("autism")){
         message.delete();
     }
+    
+    var scheduledMessage = new cron.CronJob('00 30 10 * * *', () => {
+        const guild = client.guild.cache.get('902956938000740423');
+        const channel = client.guild.cache.get('922547657816277082');
+        channel.send("I have a boner");
+    });
+    scheduledMessage.start();
 
     /*daily message don't work
     var job1 = new cron.CronJob('12 00 00', message.channel.chache.get('922547657816277082').send("I have a boner (contributed gratefully by monsier alliamo)"));
