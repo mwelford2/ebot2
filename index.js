@@ -317,6 +317,7 @@ client.on('messageCreate', async message => {
     //message: !armstrong
     if (mess === '!armstrong'){
         message.channel.send(`Shut the fuck up! Its not funny anymore!`);
+        console.log('yo it works');
     }
 
     //message: !spam
@@ -341,7 +342,7 @@ client.on('messageCreate', async message => {
     }
 
     //kevin quote
-    //TODO: This does'nt work, make it work
+    //TODO: This doesn't work, make it work
     if (mess.includes("!kevinquote")){
         const keys = Object.keys(kevinquotes);
         var num = false;
