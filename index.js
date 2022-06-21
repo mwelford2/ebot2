@@ -12,7 +12,7 @@ var TheQuote = "";
 var roastOrComebackNumber;
 
 // dont' work
-// var cron = require('cron');
+var cron = require('cron');
 
 let today = new Date();
 var update;
