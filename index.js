@@ -398,3 +398,4 @@ client.on('messageCreate', async message => {
 
 //login to discord
 client.login(process.env.token); 
+keepAlive();
