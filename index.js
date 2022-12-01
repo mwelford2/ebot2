@@ -1,4 +1,6 @@
 //prerequisites
+require('dotenv').config();
+const keepAlive = require(`./server`);
 const Discord = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
