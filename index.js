@@ -1,4 +1,4 @@
-//import discord.js
+//prerequisites
 const Discord = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
@@ -8,10 +8,10 @@ const json = require('./roast.json');
 const json2 = require('./comeback.json');
 const kevinquotes = require('./kevinquotes.json');
 
-var cron = require('cron');
-
 var TheQuote = "";
 var roastOrComebackNumber;
+
+// dont' work
 
 let today = new Date();
 var update;
@@ -193,7 +193,7 @@ client.on('messageCreate', async message => {
         getRandomMessage(m);
     }
 
-    if (mess.includes("!your mom")){
+    if (mess.includes("!yourmom")){
         message.channel.send("https://tenor.com/view/smtv-smt5-shin-megami-tensei-v-shin-megami-tensei5-smt-gif-22270369");
     }
 
@@ -316,11 +316,32 @@ client.on('messageCreate', async message => {
 
     //message: !armstrong
     if (mess === '!armstrong'){
-        message.channel.send(`Standing here I realize You are just like me Trying to make history But who’s to judge The right from wrong? When our guard is down I think we’ll both agree That violence breeds violence But in the end it has to be this way I’ve carved my own path You followed your wrath But maybe we’re both the same The world has turned And so many have burned But nobody is to blame Yet staring across this barren wasted land I feel new life will be born Beneath the blood stained sand Beneath the blood stained sand`);
+        message.channel.send(`Shut the fuck up! Its not funny anymore!`);
+    }
+
+    //message: !spam
+    if (mess.includes("spam")){
+        if (args[1]){
+            var i = 10;
+            var spamMess = args[1];
+            if (args[2]){
+                i = args[2];
+            }
+            if (args[3]){
+                spamMess += " " + args[3];
+            }
+            
+            if (i > 20) { i = 20; }
+            if ( i < 0 ) { i = 0; }
+            for (var j = 0; j < i; j++) {
+                message.channel.send(spamMess);
+            }
+        }
+        else { message.reply("This command was used incorrectly, correct format:\n!spam <@user> <number of times (opt)> <message (opt)>"); }
     }
 
     //kevin quote
-    //TODO: This does'nt work, make it work
+    //TODO: This doesn't work, make it work
     if (mess.includes("!kevinquote")){
         const keys = Object.keys(kevinquotes);
         var num = false;
@@ -329,7 +350,7 @@ client.on('messageCreate', async message => {
             try{
                 num = true;
                 var arg = parseInt(args[1]) - 1;
-                if (arg > (keys.length - 1)) { arg = keys.length - 1; }
+                if (arg > 132) { arg = 132; }
                 if (arg < 0) { arg = 0; } 
                 const Key = keys[arg];
                 quote = kevinquotes[Key]
@@ -353,13 +374,20 @@ client.on('messageCreate', async message => {
         message.reply(`Quote Number: ${TheQuote - 1}`);
     }
 
-    var scheduledMessage = new cron.CronJob('00 30 10 * * *', () => {
-        const guild = client.guild.cache.get('902956938000740423');
-        const channel = client.guild.cache.get('922547657816277082');
-        channel.send("I have a boner");
-    });
-    scheduledMessage.start();
+    if (mess.includes("fault") && message.author.id != '778274994430017546'){
+        message.channel.send(`ITS GRACE MALTEZ\'S FAULT. YOU SHOULD KNOW THAT ${message.author}`);
+    }
 
+    if (mess.includes("autism")){
+        message.delete();
+    }
+
+    /*daily message don't work
+    var job1 = new cron.CronJob('12 00 00', message.channel.chache.get('922547657816277082').send("I have a boner (contributed gratefully by monsier alliamo)"));
+    job1.start();
+    //daily message test
+    var job2 = new cron.CronJob('20 51 00', message.channel.cache.get('922547657816277082').send("It works!"));
+    job2.start(); */
 //random number
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
