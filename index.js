@@ -267,7 +267,7 @@ client.on('messageCreate', async message => {
             var l = Rkeys.length;
             var newRoast = { [""+l]:[r]};
             Roasts.push(newRoast);
-            message.reply(`Roast Added`);
+            message.reply(`Added roast number ${l}`);
         }
         else{
             message.reply(`Incorrect ussage: Please provide a new roast`);
@@ -309,7 +309,7 @@ client.on('messageCreate', async message => {
             var l = Ckeys.length;
             var newComeback = { [""+l] : [c]};
             Comebacks.push(newComeback);
-            message.reply(`Comeback Added`);
+            message.reply(`Added comeback number ${l}`);
         }
         else{
             message.reply(`Incorrect ussage: Please provide a new comeback`);
@@ -399,17 +399,17 @@ client.on('messageCreate', async message => {
         message.channel.send("" + quote); //the "" are added to ensure that the message is not emtpy
     }
 
-    if (mess === "!quote"){
+    if (mess.includes("!quote")){
         message.reply(`Last Quote Number: ${TheQuote - 1}`);
         }
 
-    if (mess === "!addquote"){
+    if (mess.includes("!addquote")){
         if (args[1]){
             var q = args[1];
             var l = Qkeys.length
             var newQuote = { [""+l] : [q] };
             kevinquotes.push(newQuote);
-            message.reply(`Quote Added`);
+            message.reply(`Added quote number ${l}`);
         }else{
             message.reply(`Incorrect ussage: Please provide a quote after the \"!addquote\" command`);
         }
