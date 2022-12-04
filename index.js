@@ -6,9 +6,12 @@ const { joinVoiceChannel } = require('@discordjs/voice')
 const prefix = '!';
 const talkedRecently = new Set();
 
-const json = require('./roast.json');
-const json2 = require('./comeback.json');
+const Roasts = require('./roast.json');
+const Comebacks = require('./comeback.json');
 const kevinquotes = require('./kevinquotes.json');
+const Qkeys = Object.keys(kevinquotes);
+const Rkeys = Object.keys(Roasts);
+const Ckeys = Object.keys(Comebacks);
 
 var TheQuote = "";
 var roastOrComebackNumber;
@@ -232,23 +235,22 @@ client.on('messageCreate', async message => {
     //Roasts/Comeback stuff
     if (mess.includes("!roast") && !mess.includes("!roastnum")){
         var num = false;
-        const keys = Object.keys(json);
         if (args[1]){
             try{
                 num = true;
                 var arg = parseInt(args[1]);
-                if (arg > 59){ arg = 59 }
+                if (arg >= Rkeys.length){ arg = Rkeys.length-1 }
                 if (arg < 0){ arg = 0 }
-                const Key = keys[arg];
-                var roast = json[Key];
-                roastOrComebackNumber = keys[arg]; // stores the roast number in a variable
+                const Key = Rkeys[arg];
+                var roast = Roasts[Key];
+                roastOrComebackNumber = Rkeys[arg]; // stores the roast number in a variable
             }
             catch(e){ console.log(e) };
         }
         
-        const randIndex = Math.floor(Math.random() * keys.length); 
-        const randKey = keys[randIndex];
-        var roast2 = json[randKey];
+        const randIndex = Math.floor(Math.random() * Rkeys.length); 
+        const randKey = Rkeys[randIndex];
+        var roast2 = Roasts[randKey];
         if (!args[1]){
             roastOrComebackNumber = randIndex + 1; // stores the roast number in a variable
         }
@@ -259,28 +261,40 @@ client.on('messageCreate', async message => {
             message.channel.send("" + roast2)
     }
 
+    if (mess.includes("!addroast")){
+        if (args[1]){
+            var r = args[1];
+            var l = Rkeys.length;
+            var newRoast = { [""+l]:[r]};
+            Roasts.push(newRoast);
+            message.reply(`Roast Added`);
+        }
+        else{
+            message.reply(`Incorrect ussage: Please provide a new roast`);
+        }
+    }
+
 
 
     if(mess.includes("!comeback") && !mess.includes("!comebacknum")){
-        const keys = Object.keys(json2);
         var num = false;
         var comeback = "";
         if (args[1]){
             try{
                 num = true;
                 var arg = parseInt(args[1]);
-                if (arg > 100){ arg = 100 };
+                if (arg >= Ckeys.length){ arg = Ckeys.length - 1 };
                 if (arg < 0){ arg = 0 };
-                const Key = keys[arg];
-                comeback = json2[Key];
-                roastOrComebackNumber = keys[arg]; // stores the comeback number in a variable
+                const Key = Ckeys[arg];
+                comeback = Comebacks[Key];
+                roastOrComebackNumber = Ckeys[arg]; // stores the comeback number in a variable
             }
             catch(e) { console.log(e) };
         }
         
-        const randIndex = Math.floor(Math.random() * keys.length);
-        const randKey = keys[randIndex];
-        const comeback2 = json2[randKey];
+        const randIndex = Math.floor(Math.random() * Ckeys.length);
+        const randKey = Ckeys[randIndex];
+        const comeback2 = Comebacks[randKey];
         if (!args[1]) { roastOrComebackNumber = randKey; } // stores the comeback number in a variable, in if statement to not interfere with other statements
         
         if (num)
@@ -288,6 +302,20 @@ client.on('messageCreate', async message => {
         else
             message.channel.send("" +comeback2);
     }
+
+    if (mess.includes("!addcomeback")) {
+        if (args[1]){
+            var c = args[1];
+            var l = Ckeys.length;
+            var newComeback = { [""+l] : [c]};
+            Comebacks.push(newComeback);
+            message.reply(`Comeback Added`);
+        }
+        else{
+            message.reply(`Incorrect ussage: Please provide a new comeback`);
+        }
+    }
+
     if (mess === "!roastnumber" || mess === "!roastnum" || mess === "!comebacknumber" || mess === "!comebacknum"){ // tells the author of the message what the last roast or comeback number was
         if (roastOrComebackNumber != null && roastOrComebackNumber != undefined){
             message.reply(`Roast/Comeback number: ${roastOrComebackNumber - 1}`);
@@ -301,10 +329,10 @@ client.on('messageCreate', async message => {
         collector.on('collect',message => {
             if (message.author.id === '923283150573010964'){
                 setTimeout(() => {
-                    const keys = Object.keys(json2);
+                    const keys = Object.keys(Comebacks);
                     const randIndex = Math.floor(Math.random() * keys.length);
                     const randKey = keys[randIndex];
-                    const comeback = json2[randKey];
+                    const comeback = Comebacks[randKey];
                     message.reply(comeback);
                 }, 1000);
             }
@@ -345,16 +373,15 @@ client.on('messageCreate', async message => {
     //kevin quote
     //TODO: This doesn't work, make it work
     if (mess.includes("!kevinquote")){
-        const keys = Object.keys(kevinquotes);
         var num = false;
         var quote = "";
         if (args[1]){
             try{
                 num = true;
                 var arg = parseInt(args[1]) - 1;
-                if (arg >= keys.length) { arg = keys.length-1; }
+                if (arg >= Qkeys.length) { arg = Qkeys.length-1; }
                 if (arg < 0) { arg = 0; } 
-                const Key = keys[arg];
+                const Key = Qkeys[arg];
                 quote = kevinquotes[Key]
                 TheQuote = Key;
             }
@@ -364,8 +391,8 @@ client.on('messageCreate', async message => {
         }
 
         if (!num){
-            const randIndex = Math.floor(Math.random() * keys.length);
-            const randKey = keys[randIndex];
+            const randIndex = Math.floor(Math.random() * Qkeys.length);
+            const randKey = Qkeys[randIndex];
             quote = kevinquotes[randKey];
             TheQuote = randKey;
         }
@@ -377,10 +404,11 @@ client.on('messageCreate', async message => {
         }
 
     if (mess === "!addquote"){
-        var q = args[1];
-        var l = keys.length
         if (args[1]){
+            var q = args[1];
+            var l = Qkeys.length
             var newQuote = { [""+l] : [q] };
+            kevinquotes.push(newQuote);
             message.reply(`Quote Added`);
         }else{
             message.reply(`Incorrect ussage: Please provide a quote after the \"!addquote\" command`);
