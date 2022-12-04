@@ -350,7 +350,7 @@ client.on('messageCreate', async message => {
             try{
                 num = true;
                 var arg = parseInt(args[1]) - 1;
-                if (arg > 132) { arg = 132; }
+                if (arg >= keys.length) { arg = keys.length-1; }
                 if (arg < 0) { arg = 0; } 
                 const Key = keys[arg];
                 quote = kevinquotes[Key]
@@ -371,15 +371,22 @@ client.on('messageCreate', async message => {
     }
 
     if (mess === "!quote"){
-        message.reply(`Quote Number: ${TheQuote - 1}`);
+        message.reply(`Last Quote Number: ${TheQuote - 1}`);
+        }
+
+    if (mess === "!addquote"){
+        var q = args[1];
+        var l = keys.length
+        if (args[1]){
+            var newQuote = { [""+l] : [q] };
+            message.reply(`Quote Added`);
+        }else{
+            message.reply(`Incorrect ussage: Please provide a quote after the \"!addquote\" command`);
+        }
     }
 
     if (mess.includes("fault") && message.author.id != '778274994430017546'){
         message.channel.send(`ITS GRACE MALTEZ\'S FAULT. YOU SHOULD KNOW THAT ${message.author}`);
-    }
-
-    if (mess.includes("autism")){
-        message.delete();
     }
 
     /*daily message don't work
@@ -393,6 +400,10 @@ client.on('messageCreate', async message => {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+    }
+    function makeString(num){
+        var str = "";
+        return str += num.toString();
     }
 });
 
